@@ -1,31 +1,28 @@
 // ===================================NAVBAR============================================
-
-const menuBtn = document.querySelector('ri-menu-2.line');
+const menuBtn = document.querySelector('.ri-menu-2.line'); // Cambié a un selector de clase más común
 const navList = document.querySelector('.navlist');
 
-menuBtn.onclick = function(){
-    menuBtn.classList.toggle('ri-arrow-up-double-line');
-    navList.classList.toggle('active')
+if (menuBtn && navList) { // Asegúrate de que los elementos existan antes de agregar el evento
+    menuBtn.onclick = function() {
+        menuBtn.classList.toggle('ri-arrow-up-double-line');
+        navList.classList.toggle('active');
+    }
 }
 
-window.onscroll = function(){
+window.onscroll = function() {
     navList.classList.remove('active');
-    menuBtn.classList.remove('ri-arrow-up-double--line');
+    menuBtn.classList.remove('ri-arrow-up-double-line');
 }
-
 
 // ================================SCROLLREVEAL ANIMATION=============================
-
-
 const sr = ScrollReveal({
     distance: '80px',
     duration: 2500,
     delay: 200,
     reset: true,
-
-
 });
 
+// Usando ScrollReveal en varios elementos
 sr.reveal('.top-nav', { origin: 'top' });
 sr.reveal('.home-container .content h1', { origin: 'bottom' });
 sr.reveal('.home-container .content p', { origin: 'left' });
