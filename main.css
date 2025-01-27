@@ -668,7 +668,7 @@ section {
     }
     .navlist{
         position: absolute;
-        top: 3.5rem;
+        top: 7.5rem;
         right: 1rem;
         width: 60%;
         flex-direction: column;
@@ -678,10 +678,66 @@ section {
         opacity: 0;
         visibility: hidden;
     }
+    .navlist li .submenu{
+        left: 5rem;
+        width: 11rem;
+        background: var(--color-primary);
+        transition: var(--transtition);
+        visibility: hidden;
+        opacity: 0;
+        z-index: 111;
+    }
     .navlist.active{
+        top: 5rem;
         opacity: 1;
         visibility: visible;
-        
+
+    }
+    .contact-container .form{
+        grid-template-columns: 1fr;
     }
  }
 
+
+/*==============================
+         RESPONSIVE MOBILE
+ =============================*/
+
+ @media (max-width: 660px){
+
+    .features-container,
+    .blog-container,
+    .testimonial-container{
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .contact-container .content,
+    .footer-container{
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+    .contact-container .form .form input{
+        gap: .5rem;
+    }
+ }
+ @media (max-width: 460px){
+
+    .contact-container .content{
+        grid-template-columns: 1fr;
+        width: 70%;
+    }
+    .home .content h1{
+        font-size: 2.5rem;
+        line-height: 1.2;
+    }
+    .home .content .btn{
+        height: 2.8rem;
+        width: 8rem;
+    }
+    .home {
+        height: 90vh;
+    }
+    .home .content {
+        top: 4rem;
+    }
+ }
