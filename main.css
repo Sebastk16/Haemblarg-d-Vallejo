@@ -719,33 +719,6 @@ section {
    ============================== */
 
 @media (max-width: 660px) {
-    .about-container {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 1rem;
-        text-align: center;
-    }
-
-    .about-container .image {
-        width: 100%;
-        max-height: 300px;
-        object-fit: cover;
-    }
-
-    .about-container .text-overlay {
-        position: absolute;
-        bottom: 0; /* Ajusta para mantener el texto cerca del borde inferior */
-        left: 0;
-        right: 0;
-        background-color: rgba(255, 255, 0, 0.8); /* Fondo amarillo semitransparente */
-        color: #000; /* Texto negro */
-        padding: 0.5rem;
-        text-align: center;
-        font-weight: bold;
-        font-size: 1rem;
-    }
     .features-container,
     .blog-container,
     .testimonial-container {
