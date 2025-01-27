@@ -582,209 +582,186 @@ section {
     color: var(--color-secondary);
 }
 
-/* =======================
-  Pantallas muy grandes (PC/TV de ultra alta resolución)
- ======================= */
- @media (max-width: 2560px) { /* Pantallas 4K */
+/*==============================
+             FOOTER
+ =============================*/
+
+ /* ==============================
+         BASE RESPONSIVE CSS
+   ============================== */
+
+@media (max-width: 1150px) {
     .features-container,
     .blog-container {
-        grid-template-columns: repeat(6, 1fr); /* 6 columnas */
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
     }
     .team-container {
-        grid-template-columns: repeat(7, 1fr); /* 7 columnas */
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
     }
 }
 
-/* =======================
-  Pantallas grandes (PC/TV)
- ======================= */
-@media (max-width: 1920px) { /* Pantallas Full HD */
-    .features-container,
-    .blog-container {
-        grid-template-columns: repeat(4, 1fr); /* 4 columnas */
-    }
-    .team-container {
-        grid-template-columns: repeat(5, 1fr); /* 5 columnas */
-    }
-}
-
-/* =======================
-  Pantallas medianas grandes (Laptop de alta resolución)
- ======================= */
-@media (max-width: 1440px) { /* Pantallas de 1440p */
-    .features-container,
-    .blog-container {
-        grid-template-columns: repeat(3, 1fr); /* 3 columnas */
-    }
-    .team-container {
-        grid-template-columns: repeat(4, 1fr); /* 4 columnas */
-    }
-}
-
-/* =======================
-  Pantallas medianas (Laptop y pantallas de PC más pequeñas)
- ======================= */
-@media (max-width: 1280px) { /* Pantallas de Laptop y escritorios medianos */
-    .features-container,
-    .blog-container {
-        grid-template-columns: repeat(3, 1fr); /* 3 columnas */
-    }
-    .team-container {
-        grid-template-columns: repeat(4, 1fr); /* 4 columnas */
-    }
-    .testimonial-container {
-        grid-template-columns: repeat(2, 1fr); /* 2 columnas */
-    }
-}
-
-/* =======================
-  Tabletas (pantallas medianas)
- ======================= */
-@media (max-width: 1024px) { /* Tabletas en orientación horizontal */
-    .features-container,
-    .blog-container {
-        grid-template-columns: repeat(2, 1fr); /* 2 columnas */
-    }
-    .testimonial-container {
-        grid-template-columns: 1fr; /* 1 columna */
-    }
-    h1 {
-        font-size: 2.5rem;
-    }
-    .container {
-        width: 90%; /* Ajustar el contenedor */
-    }
-}
-
-/* =======================
-  Tabletas pequeñas y móviles grandes
- ======================= */
-@media (max-width: 768px) { /* Tabletas en orientación vertical y móviles grandes */
+@media (max-width: 992px) {
     h1, h2, h3, h4 {
-        line-height: 1.3;
+        line-height: 1;
     }
+
     h1 {
-        font-size: 2.2rem;
+        font-size: 2.4rem;
     }
+
     h2 {
-        font-size: 1.7rem;
+        font-size: 1.8rem;
     }
-    .features-container,
-    .blog-container {
-        grid-template-columns: 1fr 1fr; /* 2 columnas */
+
+    h3 {
+        font-size: 1.5rem;
     }
-    .footer-container {
-        grid-template-columns: 1fr 1fr; /* 2 columnas */
+
+    h4 {
+        font-size: 1.05rem;
     }
-    .contact-container .form {
-        grid-template-columns: 1fr; /* 1 columna para formularios */
+
+    .container {
+        width: var(--width-sm);
+    }
+
+    section {
+        padding: 3rem 0;
+    }
+
+    .about-container .content {
+        padding: 2rem;
+        position: relative;
+        width: 100%;
+        right: 0;
+    }
+
+    .testimonial-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
     }
 }
 
-/* =======================
-  Móviles grandes
- ======================= */
-@media (max-width: 600px) { /* Móviles grandes */
-    h1 {
-        font-size: 1.9rem;
+@media (max-width: 850px) {
+    .features-container,
+    .blog-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
     }
-    h2 {
-        font-size: 1.6rem;
+
+    .contact-container .content {
+        gap: 1rem;
     }
+
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 750px) {
+    .top-nav {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+        cursor: pointer;
+    }
+
+    .bottom-nav .logo {
+        display: block;
+        padding: 1rem 0;
+    }
+
+    .bottom-nav.container {
+        width: 100%;
+        padding: 0 2%;
+    }
+
+    .navlist {
+        position: absolute;
+        top: 7.5rem;
+        right: 1rem;
+        width: 70%;
+        flex-direction: column;
+        background: var(--color-primary);
+        z-index: 111;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .navlist li .submenu {
+        left: 5rem;
+        width: 11rem;
+        background: var(--color-primary);
+        visibility: hidden;
+        opacity: 0;
+        z-index: 111;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .navlist.active {
+        top: 5rem;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .contact-container .form {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==============================
+         RESPONSIVE MOBILE
+   ============================== */
+
+@media (max-width: 660px) {
     .features-container,
     .blog-container,
     .testimonial-container {
-        grid-template-columns: 1fr; /* 1 columna */
-        gap: 1rem; /* Ajuste de espaciado */
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
-    .contact-container .content {
-        grid-template-columns: 1fr; /* 1 columna */
+
+    .contact-container .content,
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .contact-container .form input {
+        gap: 0.5rem;
     }
 }
 
-/* =======================
-  Móviles pequeños
- ======================= */
-@media (max-width: 500px) { /* Móviles pequeños */
-    h1 {
-        font-size: 1.8rem;
+@media (max-width: 460px) {
+    .contact-container .content {
+        grid-template-columns: 1fr;
+        width: 90%;
+        margin: 0 auto;
     }
-    h2 {
-        font-size: 1.5rem;
-    }
+
     .home .content h1 {
         font-size: 2.5rem;
         line-height: 1.2;
     }
-    .features-container,
-    .blog-container,
-    .testimonial-container {
-        grid-template-columns: 1fr; /* 1 columna */
-        gap: 1rem; /* Ajuste de espaciado */
-    }
-    .contact-container .content {
-        grid-template-columns: 1fr; /* 1 columna */
-    }
-    .bottom-nav .logo {
-        display: block;
-        padding: 0.5rem 0;
-    }
-    .home {
-        height: 80vh; /* Reducir la altura */
-    }
-}
 
-/* =======================
-  Móviles ultra pequeños
- ======================= */
-@media (max-width: 375px) { /* Móviles ultra pequeños */
-    .contact-container .content {
-        grid-template-columns: 1fr; /* 1 columna */
-        width: 80%; /* Reducir el ancho del contenido */
-    }
-    .home .content {
-        top: 2rem;
-    }
     .home .content .btn {
-        height: 2.5rem;
-        width: 7rem;
+        height: 2.8rem;
+        width: 100%;
+        max-width: 8rem;
     }
-}
 
-/* =======================
-  Resoluciones más pequeñas (Smartphones extremadamente compactos)
- ======================= */
-@media (max-width: 320px) { /* Resoluciones de smartphones muy pequeños */
-    .home .content h1 {
-        font-size: 2rem;
-    }
     .home {
-        height: 70vh; /* Reducir más la altura */
+        height: 90vh;
+        padding: 1rem;
     }
-    .home .content {
-        top: 1rem;
-    }
-    .home .content .btn {
-        height: 2.2rem;
-        width: 6.5rem;
-    }
-}
 
-/* =======================
-  Resoluciones para pantallas muy pequeñas
- ======================= */
-@media (max-width: 240px) { /* Dispositivos de pantalla muy pequeña */
-    .home .content h1 {
-        font-size: 1.8rem;
-    }
-    .home {
-        height: 60vh; /* Reducir aún más la altura */
-    }
     .home .content {
-        top: 0;
-    }
-    .home .content .btn {
-        height: 2rem;
-        width: 6rem;
+        top: 4rem;
+        padding: 1rem;
     }
 }
