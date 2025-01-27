@@ -719,23 +719,32 @@ section {
    ============================== */
 
 @media (max-width: 660px) {
-    .about-container .content {
-        grid-template-columns: 1fr;
-        width: 80%; /* Ajusta el ancho para adaptarse a pantallas más grandes */
-        margin: 0 auto; /* Centra el contenido */
-        padding: 2rem; /* Mantiene espacio suficiente sin que sea demasiado */
+    .about-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        text-align: center;
     }
 
-    .about-container .content img {
-        width: 100%; /* Asegura que la imagen no desborde */
-        max-height: 250px; /* Establece un límite de altura para evitar que ocupe demasiado espacio */
-        object-fit: cover; /* Recorta la imagen para mantener un diseño limpio */
+    .about-container .image {
+        width: 100%;
+        max-height: 300px;
+        object-fit: cover;
     }
 
-    .about-container .content h2,
-    .about-container .content p {
-        font-size: 1rem; /* Tamaño ligeramente mayor que en 460px para mejor legibilidad */
-        line-height: 1.4; /* Mejora el espaciado del texto */
+    .about-container .text-overlay {
+        position: absolute;
+        bottom: 0; /* Ajusta para mantener el texto cerca del borde inferior */
+        left: 0;
+        right: 0;
+        background-color: rgba(255, 255, 0, 0.8); /* Fondo amarillo semitransparente */
+        color: #000; /* Texto negro */
+        padding: 0.5rem;
+        text-align: center;
+        font-weight: bold;
+        font-size: 1rem;
     }
     .features-container,
     .blog-container,
@@ -756,22 +765,6 @@ section {
 }
 
 @media (max-width: 460px) {
-    .about-container .content {
-        grid-template-columns: 1fr;
-        width: 90%; /* Ajusta el ancho para dispositivos pequeños */
-        margin: 0 auto; /* Centra el contenido */
-        padding: 1rem; /* Reduce el espacio interno */
-        background: var(--color-primary-light); /* Asegura que el fondo amarillo se mantenga */
-    }
-    .about-container .content img {
-        width: 100%; /* Asegura que la imagen se adapte al espacio disponible */
-        height: auto; /* Mantiene la proporción de la imagen */
-    }
-
-    .about-container .content h2,
-    .about-container .content p {
-        font-size: 0.9rem; /* Reduce el tamaño de fuente para pantallas pequeñas */
-    }
     .contact-container .content {
         grid-template-columns: 1fr;
         width: 90%;
