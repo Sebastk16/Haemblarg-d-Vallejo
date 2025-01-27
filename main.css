@@ -719,33 +719,6 @@ section {
    ============================== */
 
 @media (max-width: 660px) {
-    .about-container {
-        display: grid;
-        grid-template-columns: 1fr;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .about-container .content {
-        background: var(--color-secondary); /* Color amarillo */
-        padding: 1rem;
-        border-radius: 8px;
-        text-align: center;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .about-container .image {
-        max-height: 200px; /* Ajustar tamaño máximo de la imagen */
-        overflow: hidden;
-    }
-
-    .about-container .image img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        border-radius: 8px;
-    }
-    
     .features-container,
     .blog-container,
     .testimonial-container {
