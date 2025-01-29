@@ -351,54 +351,99 @@ section {
              ABOUT
  =============================*/
 
-.about-container .left{
-    width: 95%;
+ /* Contenedor principal */
+.about-us {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    background-color: #f4f4f4;
 }
-.about-container .right{
-    position: relative;
+
+/* Contenedor amarillo */
+.about-container {
+    display: flex;
+    background-color: #ffcc00;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 85%; /* Reducir ancho */
+    max-width: 1200px; /* Reducir ancho máximo */
+    margin: 0 auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 2rem; /* Reducir más el espacio interno */
 }
-.about-container .content {
-    background: var(--color-secondary);
-    width: 40%;
-    padding: 5rem 2rem;
-    position: absolute;
-    right: 0;
-    top: -24rem;
+
+/* Imagen */
+.about-image {
+    flex: 1.5; /* Proporción ajustada */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+.about-image img {
+    width: 107%; /* Imagen reducida en un 3% (de 110% a 107%) */
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    
+}
+
+/* Contenido */
+.about-content {
+    flex: 1;
+    padding: 1.8rem; /* Reducir espacio interno */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #333;
+}
+
+/* Texto */
+.about-content h2 {
+    margin: 0;
+    font-size: 1.5rem; /* Reducir tamaño del texto */
+    text-transform: uppercase;
     color: var(--color-text-2);
+    font-weight: bold;
 }
-.about-container .title h4{
+
+.about-content h3 {
+    margin: 0.5rem 0;
+    font-size: 2.5rem; /* Reducir tamaño del subtítulo */
     color: var(--color-text-2);
+    font-weight: 700;
 }
-.about-container .title h2{
-    font-size: 2rem;
+
+.about-content p {
+    margin: 1rem 0;
+    line-height: 1.6; /* Ajustar altura de línea */
+    font-size: 1.2rem; /* Reducir tamaño del párrafo */
+    color: var(--color-text-2);
+    font-weight: 400;
+}
+
+/* Botón */
+.read-more-btn {
+    text-decoration: none;
+    background-color: #001f54;
+    color: #fff;
+    padding: 0.8rem 2rem; /* Reducir tamaño del botón */
+    border-radius: 10px;
+    text-align: center;
     display: inline-block;
+    margin-top: 1rem;
+    font-size: 1.4rem; /* Reducir tamaño de la fuente */
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
-.about-container .title{
-    text-align: start;
-    margin-bottom: 1rem;
+
+.read-more-btn:hover {
+    background-color: #00337c;
 }
-.about-container .content .btn{
-    background: var(--color-primary);
-}
-.about-container .content .btn:hover::before{
-    color: var(--color-text-2);
-}
-.about-container .content .btn:hover{
-    color: var(--color-text-1);
-}
-.about-container .content i{
-    position: absolute;
-    top: -3.3rem;
-    font-size: 4rem;
-}
-.about-container .content p{
-    padding-bottom: 2rem;
-}
-.courses-container .box .content h4{
-    color: var(--color-secondary);
-    font-size: 1.3rem;
-    text-transform: capitalize;
-}
+
 
 /*==============================
              BLOG
@@ -582,6 +627,7 @@ section {
     color: var(--color-secondary);
 }
 
+
 /*==============================
              FOOTER
  =============================*/
@@ -719,33 +765,34 @@ section {
    ============================== */
 
 @media (max-width: 660px) {
-    .about-container .content {
-        grid-template-columns: 1fr;
-        text-align: center; /* Centrar texto */
-        padding: 1rem; /* Reducir padding */
-        margin: 0 auto; /* Centrar contenedor */
+    .about-container {
+        flex-direction: column;
+        text-align: center;
     }
 
-    .about-container .content h1 {
-        font-size: 1.8rem; /* Ajustar tamaño del título */
+    .about-image {
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
-    .about-container .content p {
-        font-size: 0.9rem; /* Ajustar tamaño del texto */
-        line-height: 1.5; /* Mejorar lectura */
+    .about-image img {
+        width: 120%; /* Aumenta el tamaño de la imagen */
+        max-width: none; /* Evita restricciones de tamaño */
+        height: auto;
     }
 
-    .about-container .content img {
-        width: 100%; /* Imagen adaptada a contenedor */
-        max-width: 250px; /* Límite de ancho */
-        height: auto; /* Mantener proporción */
-        margin: 0 auto 1rem; /* Centrar imagen */
+    .about-content {
+        padding: 1.5rem;
     }
 
-    .about-container .content .btn {
-        font-size: 0.9rem; /* Reducir tamaño del botón */
-        padding: 0.5rem 1rem; /* Ajustar padding del botón */
-        margin-top: 1rem; /* Separación del contenido */
+    .about-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .read-more-btn {
+        margin: 1rem auto 0;
+        display: block;
     }
     .features-container,
     .blog-container,
@@ -766,6 +813,19 @@ section {
 }
 
 @media (max-width: 460px) {
+    .about-image img {
+        width: 130%; /* Aumenta aún más en pantallas más pequeñas */
+        height: auto;
+        transform: translateY(-10px); /* Eleva la imagen para que abarque más */
+    }
+
+    .about-container {
+        padding: 1rem; /* Reduce los márgenes para mayor espacio */
+    }
+
+    .about-content {
+        padding: 1rem;
+    }
     .contact-container .content {
         grid-template-columns: 1fr;
         width: 90%;
