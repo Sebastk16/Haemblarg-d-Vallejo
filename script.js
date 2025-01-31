@@ -1,14 +1,3 @@
-// ===================================NAVBAR============================================
-const menuBtn = document.querySelector('.ri-menu-2.line'); // Cambié a un selector de clase más común
-const navList = document.querySelector('.navlist');
-
-if (menuBtn && navList) { // Asegúrate de que los elementos existan antes de agregar el evento
-    menuBtn.onclick = function() {
-        menuBtn.classList.toggle('ri-arrow-up-double-line');
-        navList.classList.toggle('active');
-    }
-}
-
 window.onscroll = function() {
     navList.classList.remove('active');
     menuBtn.classList.remove('ri-arrow-up-double-line');
@@ -40,3 +29,18 @@ sr.reveal('.contact-container .form div:last-child', { origin: 'left' });
 sr.reveal('.footer-container', { origin: 'top' });
 
 
+/*=============== SHOW MENU ===============*/
+const showMenu = (toggleId, navId) =>{
+    const toggle = document.getElementById(toggleId),
+          nav = document.getElementById(navId)
+ 
+    toggle.addEventListener('click', () =>{
+        // Add show-menu class to nav menu
+        nav.classList.toggle('show-menu')
+ 
+        // Add show-icon to show and hide the menu icon
+        toggle.classList.toggle('show-icon')
+    })
+ }
+ 
+ showMenu('nav-toggle','nav-menu')
