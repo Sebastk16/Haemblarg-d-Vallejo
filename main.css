@@ -966,9 +966,34 @@ a {
   transition: opacity .1s, transform .4s;
 }
 
+/* Por defecto, oculta el texto en pantallas grandes */
+.nav__text {
+    display: none;
+}
+
+/* Mostrar el texto solo en pantallas pequeñas (hasta 1118px) */
+@media screen and (max-width: 1118px) {
+    .nav__text {
+        display: inline;
+    }
+}
+
 .nav__close {
   opacity: 0;
 }
+
+/* Por defecto, oculta la imagen en pantallas grandes */
+.nav__logo-img {
+    display: none;
+}
+
+/* Mostrar la imagen solo en pantallas pequeñas (hasta 1118px) */
+@media screen and (max-width: 1118px) {
+    .nav__logo-img {
+        display: inline;
+    }
+}
+
 
 /* Navigation for mobile devices */
 @media screen and (max-width: 1118px) {
