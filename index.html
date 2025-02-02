@@ -2,466 +2,121 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
-    <title>La Emblematica de Vallejo</title>
-    <script src="https://unpkg.com/scrollreveal"></script>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!--=============== FAVICON ===============-->
+   <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+
+   <!--=============== REMIXICONS ===============-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
+
+   <!--=============== SWIPER CSS ===============-->
+   <link rel="stylesheet" href="assets/css/sakura.min.css">
+
+   <!--=============== CSS ===============-->
+   <link rel="stylesheet" href="assets/css/ygor.css">
+
+   <title>Responsive space website - Bedimcode</title>
 </head>
 
 <body>
-    <ri-menu-2 class="line"></ri-menu-2>
-    <ul class="navlist">
+   <!--==================== HEADER ====================-->
+   <header class="header" id="header">
 
-    </ul>
-    <nav>
-        <div class="top-nav container">
-            <div class="logo">
-                <img src="images/logo.png" alt="Logo de La Emblemática de Vallejo"
-                    style="width: 50px; height: auto; margin-right: 10px;">
-                <span>La Emblematica de Vallejo</span>
+   </header>
+
+   <!--==================== MAIN ====================-->
+   <main class="main">
+      <!--==================== HOME ====================-->
+      <section class="home">
+         <img src="assets/images/img-bg.svg" alt="image" class="home__bg">
+
+         <div class="home__container container">
+            <div class="home__data">
+               <h3 class="home__subtitle">
+                  UNA PRODUCCIÓN DE A/C ESTUDIANTIL VALOREM SAPIENTIAE
+               </h3>
+               <h1 class="home__title">
+                  <span>BIENVENIDO</span>
+                  <span>A LA EMBLEMÁTICA</span> 
+                  <span>DE VALLEJO</span>
+               </h1>
+
+               <p class="home__description">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus animi doloremque provident quia
+                  deserunt! Expedita nam, voluptatum eveniet sunt eligendi aspernatur illum quasi repellendus ipsam
+                  similique necessitatibus corrupti recusandae! Eaque.
+               </p>
+
+               <a href="index.html" class="home__button">Explore Place</a>
+
+               <script>
+                  function fadeOut(event) {
+                    event.preventDefault(); // Evita que la página cambie de inmediato
+                    document.body.style.transition = "opacity 0.5s";
+                    document.body.style.opacity = 0;
+              
+                    setTimeout(() => {
+                      window.location.href = event.target.href; // Redirige a la otra página
+                   }, 500); // Espera a que termine la animación (0.5s)
+                  }                   
+               </script>
+
+                       
+               <img src="assets/images/lantern-2.svg" alt="image" class="home__lantern-2">
             </div>
-            <div>
-                <div class="location">
-                    <span><i class="ri-map-pin-fill"></i></span>
-                    <span>Av. México 2087, La Victoria 15019</span>
-                </div>
-                <div class="nav-btn">
-                    <button>Login</button>
-                    <button>Register</button>
-                </div>
+
+            <div class="home__imagesa">
+               <img src="assets/images/img-1.svg" alt="image" class="home__img-1">
             </div>
-        </div>
-          <header class="header">
-            <nav class="nav container">
-               <div class="nav__data">
-                <img src="images/logo.png" alt="Logo de La Emblemática de Vallejo" class="nav__logo-img" style="width: 50px; height: auto; margin-right: 10px;">
+            <div class="home__images2b">
+               <img src="assets/images/img-2.svg" alt="image" class="home__img-2">
+               <img src="assets/images/img-3.svg" alt="image" class="home__img-3">
+               <img src="assets/images/img-4.svg" alt="image" class="home__img-4">
+            </div>
+            <div class="home__images3a">
+               <img src="assets/images/img-5.svg" alt="image" class="home__img-5">
+               <img src="assets/images/img-6.svg" alt="image" class="home__img-6">
+            </div>
+            <div class="home__images4b">
+               <img src="assets/images/img-7.svg" alt="image" class="home__img-7">
+               <img src="assets/images/img-8.svg" alt="image" class="home__img-8">
+            </div>
 
-                    <a href="#" class="nav__logo"> 
-                        <span class="nav__text">La Emblemática de Vallejo</span>
-                    </a>
-                    
-                    <script>
-                        function fadeOut(event) {
-                          event.preventDefault(); // Evita que la página cambie de inmediato
-                          document.body.style.transition = "opacity 0.5s";
-                          document.body.style.opacity = 0;
-                    
-                          setTimeout(() => {
-                            window.location.href = event.target.href; // Redirige a la otra página
-                         }, 500); // Espera a que termine la animación (0.5s)
-                        }                   
-                     </script>
+            <div class="side-bar">
+               <img src="assets/images/menu.png" class="menu" alt="">
 
-                  
-                  <div class="nav__toggle" id="nav-toggle">
-                     <i class="ri-menu-line nav__burger"></i>
-                     <i class="ri-close-line nav__close"></i>
-                  </div>
+               <div class="social-links">
+                  <img src="assets/images/fb.png" alt="">
+                  <img src="assets/images/ig.png" alt="">
+                  <img src="assets/images/tw.png" alt="">
                </div>
-   
-               <!--=============== NAV MENU ===============-->
-               <div class="nav__menu" id="nav-menu">
-                  <ul class="nav__list">
-                     
-                     <li class="dropdown__item">
-                        <div class="nav__link">
-                           Académico y Aprendisaje <i class="ri-arrow-down-s-line dropdown__arrow"></i>
-                        </div>
-   
-                        <ul class="dropdown__menu">
-                           <li>
-                              <a href="#" class="dropdown__link">
-                                 <i class="ri-pie-chart-line"></i> Biblioteca Virtual
-                              </a>                          
-                           </li>
-   
-                           <li>
-                              <a href="#" class="dropdown__link">
-                                 <i class="ri-arrow-up-down-line"></i> Calendario Académico
-                              </a>
-                           </li>
-   
-                        
-                        </ul>
-                     </li>
-   
-                     
-                     <li class="dropdown__item">
-                        <div class="nav__link">
-                           Blog & Foro <i class="ri-arrow-down-s-line dropdown__arrow"></i>
-                        </div>
-   
-                        <ul class="dropdown__menu">
-                           <li>
-                              <a href="#" class="dropdown__link">
-                                 <i class="ri-pie-chart-line"></i> Galeria de recuerdos
-                              </a>                          
-                           </li>
-   
-                           <li>
-                              <a href="#" class="dropdown__link">
-                                 <i class="ri-arrow-up-down-line"></i> Sala de Chat en Vivo
-                              </a>
-                           </li>
-   
-                        
-                        </ul>
-                     </li>
-   
-                     <!--=============== DROPDOWN 1 ===============-->
-                     <li class="dropdown__item">
-                        <div class="nav__link">
-                           Noticias en Directo <i class="ri-arrow-down-s-line dropdown__arrow"></i>
-                        </div>
-   
-                        <ul class="dropdown__menu">
-                           <li>
-                              <a href="#" class="dropdown__link">
-                                 <i class="ri-pie-chart-line"></i> Transmisiones y Videos
-                              </a>                          
-                           </li>
-   
-                           <li>
-                              <a href="#" class="dropdown__link">
-                                 <i class="ri-arrow-up-down-line"></i> Noticias y Actualidad escolar
-                              </a>
-                           </li>
-   
-                        
-                        </ul>
-                     </li>
-                     
-                     
-                     <li class="dropdown__item">
-                        <div class="nav__link">
-                           Ovación <i class="ri-arrow-down-s-line dropdown__arrow"></i>
-                        </div>
-   
-                        <ul class="dropdown__menu">
-                           <li>
-                              <a href="#" class="dropdown__link">
-                                 <i class="ri-pie-chart-line"></i> Reconocimientos y logros
-                              </a>                          
-                           </li>               
-                        </ul>
-                     </li>
-   
-                     <!--=============== DROPDOWN 2 ===============-->
-                     <li class="dropdown__item">
-                        <div class="nav__link">
-                           Extras <i class="ri-arrow-down-s-line dropdown__arrow"></i>
-                        </div>
-   
-                        <ul class="dropdown__menu">
-                           <li>
-                              <a href="#" class="dropdown__link">
-                                 <i class="ri-user-line"></i> Vallejo TV
-                              </a>                          
-                           </li>
-   
-                           <li>
-                              <a href="#" class="dropdown__link">
-                                 <i class="ri-lock-line"></i> Trivia Escolar
-                              </a>
-                           </li>
-   
-                           
-                        </ul>
-                     </li>
-   
-                     
-                  </ul>
+
+               <div class="useful-links">
+                  <img src="assets/images/share.png" alt="">
+                  <img src="assets/images/info.png" alt="">
+
                </div>
-            </nav>         
-          </header>                
-        </div>
-        
-    </nav>
 
-
-    <div class="espaciador"></div>
-
-    <!---==============================
-                     HOME
-    ================================ -->
-
-    <section class="home" id="home">
-        <div class="container home-container">
-            <div class="content">
-                <div class="overlay"></div>
-                <h1>Te damos la bienvenida, plataforma donde la educacion y la comunidad se unen</h1>
-                <p>Bienvenidos a la plataforma oficial del Colegio César Vallejo, Un espacio donde la educación, la
-                    innovación y las personas se conectan para inspirar, colaborar y construir juntos un futuro mejor.
-                    Explora recursos, noticias, eventos y herramientas diseñadas para fortalecer nuestra comunidad.
-                    ¡Descubre todo lo que tenemos preparado para ti!</p>
             </div>
-        </div>
-    </section>
 
-    <!---==============================
-                     FEATURES              
-    ================================ -->
+         </div>
 
-    <section class="feature" id="feature">
-        <div class="container features-container">
-            <div class="box">
-                <i class="ri-global-line"></i>
-                <div class="content">
-                    <h4>Libros y cronograma</h4>
-                    <p>Encuentra todos los materiales educativos necesarios para tus estudios en un solo lugar. En esta
-                        sección podrás acceder a una biblioteca digital con los libros utilizados en el colegio, junto
-                        con un cronograma actualizado que te permitirá organizar mejor tus clases, actividades y eventos
-                        escolares. ¡Todo lo que necesitas para mantenerte al día y aprender de forma efectiva!</p>
-                </div>
-            </div>
-            <div class="box">
-                <i class="ri-book-line"></i>
-                <div class="content">
-                    <h4>Comunidad</h4>
-                    <p>Un espacio diseñado para que los estudiantes puedan crear un entorno de debate, diálogo y
-                        conversación sobre diversos temas de interés. Participa en foros interactivos donde podrás
-                        expresar tus ideas, compartir puntos de vista y aprender de las perspectivas de otros.
-                        ¡Conviértete en parte activa de la construcción de nuestra comunidad escolar!</p>
-                </div>
-            </div>
-            <div class="box">
-                <i class="ri-graduation-cap-line"></i>
-                <div class="content">
-                    <h4>Radio Escolar</h4>
-                    <p>Sintoniza nuestra Radio Escolar, un espacio lleno de creatividad y talento donde los estudiantes
-                        tienen voz. Disfruta de programas educativos, entrevistas, música y noticias escolares
-                        transmitidas por los propios alumnos. Sé parte de esta experiencia única que combina
-                        entretenimiento y aprendizaje.</p>
-                </div>
-            </div>
-            <div class="box">
-                <i class="ri-book-line"></i>
-                <div class="content">
-                    <h4>Social Free</h4>
-                    <p>Social Free, los estudiantes pueden compartir libremente contenido relacionado con su vida
-                        diaria en el colegio. Publica momentos destacados, fotos, videos, anécdotas y todo lo que
-                        represente tu experiencia como parte de la familia César Vallejo. Un lugar para expresarte y
-                        conectar con tus compañeros de manera auténtica y creativa.</p>
-                </div>
-            </div>
-        </div>
+      </section>
+   </main>
 
-    </section>
+   <!-- Sakura petals -->
+    <div class="sakura-petals"></div>
 
+   <!--=============== GSAP ===============-->
+   <script src="assets/js/gsap.min.js"></script>
 
+   <!--=============== SAKURA JS ===============-->
+   <script src="assets/js/sakura.min.js"></script>
 
-    <!---==============================
-                     ABOUT          
-    ================================ -->
-
-    <section class="about-us">
-        <div class="about-container">
-            <div class="about-image">
-                <img src="images/about.jpg" alt="About Us Image">
-            </div>
-            <div class="about-content">
-                <h2>Sobre nosotros</h2>
-                <h3>Pachas re godddddddddddddd xddd</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasquam nihil, sequi officiis ea inventore cumque itaque ipsam, velit obcaecati dolore ipsam eligendi facilis quamque quod, in magnam earum omnis perferendis dignissimos vitae.</p>
-                <button class="btn">Leer más</button>
-            </div>
-        </div>
-    </section>
-
-
-
-
-    <!---==============================
-                     BLOG          
-    ================================ -->
-
-    <section class="blog" id="blog">
-        <div class="title">
-            <h4>Blog</h4>
-            <h2>Check our Events</h2>
-        </div>
-        <div class="blog-container container">
-            <!-- Blog Card 1 -->
-            <div class="box">
-                <div class="image">
-                    <img src="images/blog (1).jpg" alt="">
-                    <div class="overlay"></div>
-                    <div class="icon">
-                        <i class="ri-link-m"></i>
-                    </div>
-                </div>
-                <div class="content">
-                    <p>August 22, 2023</p>
-                    <h4>Learn Web Development</h4>
-                    <div>
-                        <span><i class="ri-user-fill"></i>James Smith</span>
-                        <span><i class="ri-message-fill"></i>9 Comments</span>
-                    </div>
-                </div>
-            </div>
-            <!-- Blog Card 2 -->
-            <div class="box">
-                <div class="image">
-                    <img src="images/blog (2).jpg" alt="">
-                    <div class="overlay"></div>
-                    <div class="icon">
-                        <i class="ri-link-m"></i>
-                    </div>
-                </div>
-                <div class="content">
-                    <p>August 22, 2023</p>
-                    <h4>Learn App Development</h4>
-                    <div>
-                        <span><i class="ri-user-fill"></i>James Smith</span>
-                        <span><i class="ri-message-fill"></i>9 Comments</span>
-                    </div>
-                </div>
-            </div>
-            <!-- Blog Card 3 -->
-            <div class="box">
-                <div class="image">
-                    <img src="images/blog (3).png" alt="">
-                    <div class="overlay"></div>
-                    <div class="icon">
-                        <i class="ri-link-m"></i>
-                    </div>
-                </div>
-                <div class="content">
-                    <p>August 22, 2023</p>
-                    <h4>Learn Full Stack</h4>
-                    <div>
-                        <span><i class="ri-user-fill"></i>James Smith</span>
-                        <span><i class="ri-message-fill"></i>9 Comments</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-
-
-    <!---==============================
-                     TESTIMONIAL         
-    ================================ -->
-
-    <section class="testimonial" id="testimonial">
-        <div class="title">
-            <h4>testimonials</h4>
-            <h2>What People Says</h2>
-        </div>
-        <div class="testimonial-container container">
-            <!-- Tarjeta 1 -->
-            <div class="box">
-                <div class="image">
-                    <img src="images/user (1).jpg" alt="">
-                </div>
-                <h5>Roke Rios</h5>
-                <div class="rating">★★★★☆</div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem ex architecto laborum qui doloremque
-                    obcaecati assumenda similique. Veniam dolore voluptates in nisi ex dicta sequi, vero magni nostrum
-                    minus saepe.</p>
-            </div>
-            <!-- Tarjeta 2 -->
-            <div class="box">
-                <div class="image">
-                    <img src="images/user (2).jpg" alt="">
-                </div>
-                <h5>Cipriani</h5>
-                <div class="rating">★★★★☆</div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem ex architecto laborum qui doloremque
-                    obcaecati assumenda similique. Veniam dolore voluptates in nisi ex dicta sequi, vero magni nostrum
-                    minus saepe.</p>
-            </div>
-            <!-- Tarjeta 3 -->
-            <div class="box">
-                <div class="image">
-                    <img src="images/user (3).jpg" alt="">
-                </div>
-                <h5>Arturo</h5>
-                <div class="rating">★★★★☆</div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem ex architecto laborum qui doloremque
-                    obcaecati assumenda similique. Veniam dolore voluptates in nisi ex dicta sequi, vero magni nostrum
-                    minus saepe.</p>
-            </div>
-        </div>
-    </section>
-
-
-
-
-    <!---==============================
-                     FOOTER           
-    ================================ -->
-
-    <footer class="footer">
-        <div class="container footer-container">
-            <div class="box">
-                <div class="logo">
-                    <i class="ri-graduation-cap-fill"></i>
-                    <span>La Emblemática de Vallejo</span>
-                </div>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore vitae excepturi impedit
-                    necessitatibus maxime optio possimus assumenda incidunt. Maxime ipsam praesentium vel cum obcaecati,
-                    corporis veniam explicabo quod dolore ab?</p>
-            </div>
-            <div class="box">
-                <h5>Quick Links</h5>
-                <ul class="nav">
-                    <li><a href="#Académico y aprendisaje">Académico y aprendisaje</a></li>
-                    <li><a href="#Blog & Foro">Blog & Foro</a></li>
-                    <li><a href="#Noticias en Directo">Noticias en Directo</a></li>
-                    <li><a href="#Ovación">Ovación</a></li>
-                    <li><a href="#Extras">Extras</a></li>
-                </ul>
-            </div>
-            <div class="box">
-                <h5>Features</h5>
-                <ul>
-                    <li><a href="">Jobs</a></li>
-                    <li><a href="">Brands</a></li>
-                    <li><a href="">Investor relations</a></li>
-                    <li><a href="">Terms & Service</a></li>
-                </ul>
-            </div>    
-            <div class="box">
-                <h5>Resources</h5>
-                <ul>
-                    <li><a href="">Guides</a></li>
-                    <li><a href="">Research</a></li>
-                    <li><a href="">Experts</a></li>
-                    <li><a href="">Agencies</a></li>
-                </ul>
-            </div>
-            <div class="box contact-box">
-                <h5>Contact info</h5>
-                <p>Av. México 2087, La Victoria 15019</p>
-                <span><i class="ri-phone-line"></i>000 000 000</span>
-                <span><i class="ri-mail-line"></i>info@yoursite.com</span>
-                <span><i class="ri-global-line"></i>yourwebsite.com</span>
-
-            </div>    
-        </div>
-    </footer>
-
-    <div class="copyright">
-        <p>copyright &copy; | This template <i
-        class="ri-heart-line"></i> by svfgcbvgcb <a href="">Codeatusman</a></p>
-        <p>Demo images:dhdi wihihsskdksd</p>
-
-    </div>
-
-
-
-
-
-
-
-    
-    <script src="script.js"></script>
+   <!--=============== MAIN JS ===============-->
+   <script src="assets/js/main.js"></script>
 </body>
 
 </html>
