@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!--=============== FAVICON ===============-->
+   <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+
+   <!--=============== REMIXICONS ===============-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
+
+   <!--=============== SWIPER CSS ===============-->
+   <link rel="stylesheet" href="assets/css/sakura.min.css">
+
+   <!--=============== CSS ===============-->
+   <link rel="stylesheet" href="assets/css/ygor.css">
+
+   <title>Responsive space website - Bedimcode</title>
+</head>
+
+<body>
+   <!--==================== HEADER ====================-->
+   <header class="header" id="header">
+
+   </header>
+
+   <!--==================== MAIN ====================-->
+   <main class="main">
+      <!--==================== HOME ====================-->
+      <section class="home">
+         <img src="assets/images/img-bg.svg" alt="image" class="home__bg">
+
+         <div class="home__container container">
+            <div class="home__data">
+               <h3 class="home__subtitle">
+                  UNA PRODUCCIÓN DE A/C ESTUDIANTIL VALOREM SAPIENTIAE
+               </h3>
+               <h1 class="home__title">
+                  <span>BIENVENIDO</span>
+                  <span>A LA EMBLEMÁTICA</span> 
+                  <span>DE VALLEJO</span>
+               </h1>
+
+               <p class="home__description">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus animi doloremque provident quia
+                  deserunt! Expedita nam, voluptatum eveniet sunt eligendi aspernatur illum quasi repellendus ipsam
+                  similique necessitatibus corrupti recusandae! Eaque.
+               </p>
+
+               <a href="index.html" class="home__button">Explore Place</a>
+
+               <script>
+                  function fadeOut(event) {
+                    event.preventDefault(); // Evita que la página cambie de inmediato
+                    document.body.style.transition = "opacity 0.5s";
+                    document.body.style.opacity = 0;
+              
+                    setTimeout(() => {
+                      window.location.href = event.target.href; // Redirige a la otra página
+                   }, 500); // Espera a que termine la animación (0.5s)
+                  }                   
+               </script>
+
+                       
+               <img src="assets/images/lantern-2.svg" alt="image" class="home__lantern-2">
+            </div>
+
+            <div class="home__imagesa">
+               <img src="assets/images/img-1.svg" alt="image" class="home__img-1">
+            </div>
+            <div class="home__images2b">
+               <img src="assets/images/img-2.svg" alt="image" class="home__img-2">
+               <img src="assets/images/img-3.svg" alt="image" class="home__img-3">
+               <img src="assets/images/img-4.svg" alt="image" class="home__img-4">
+            </div>
+            <div class="home__images3a">
+               <img src="assets/images/img-5.svg" alt="image" class="home__img-5">
+               <img src="assets/images/img-6.svg" alt="image" class="home__img-6">
+            </div>
+            <div class="home__images4b">
+               <img src="assets/images/img-7.svg" alt="image" class="home__img-7">
+               <img src="assets/images/img-8.svg" alt="image" class="home__img-8">
+            </div>
+
+            <div class="side-bar">
+               <img src="assets/images/menu.png" class="menu" alt="">
+
+               <div class="social-links">
+                  <img src="assets/images/fb.png" alt="">
+                  <img src="assets/images/ig.png" alt="">
+                  <img src="assets/images/tw.png" alt="">
+               </div>
+
+               <div class="useful-links">
+                  <img src="assets/images/share.png" alt="">
+                  <img src="assets/images/info.png" alt="">
+
+               </div>
+
+            </div>
+
+         </div>
+
+      </section>
+   </main>
+
+   <!-- Sakura petals -->
+    <div class="sakura-petals"></div>
+
+   <!--=============== GSAP ===============-->
+   <script src="assets/js/gsap.min.js"></script>
+
+   <!--=============== SAKURA JS ===============-->
+   <script src="assets/js/sakura.min.js"></script>
+
+   <!--=============== MAIN JS ===============-->
+   <script src="assets/js/main.js"></script>
+</body>
+
+</html>

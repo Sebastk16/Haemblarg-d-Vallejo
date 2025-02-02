@@ -42,6 +42,18 @@
                         <span class="nav__text">La Emblemática de Vallejo</span>
                     </a>
                     
+                    <script>
+                        function fadeOut(event) {
+                          event.preventDefault(); // Evita que la página cambie de inmediato
+                          document.body.style.transition = "opacity 0.5s";
+                          document.body.style.opacity = 0;
+                    
+                          setTimeout(() => {
+                            window.location.href = event.target.href; // Redirige a la otra página
+                         }, 500); // Espera a que termine la animación (0.5s)
+                        }                   
+                     </script>
+
                   
                   <div class="nav__toggle" id="nav-toggle">
                      <i class="ri-menu-line nav__burger"></i>
