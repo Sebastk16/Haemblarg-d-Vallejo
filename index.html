@@ -110,6 +110,26 @@
       </section>
    </main>
 
+   <form action="/verificar" method="POST">
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAAA8Su6Mvfrws-BB5"></div>
+      <button type="submit">Enviar</button>
+    </form>
+    
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+    <script>
+      document.querySelector("form").addEventListener("submit", function(event) {
+          let turnstileResponse = document.querySelector("[name='cf-turnstile-response']").value;
+          
+          if (!turnstileResponse) {
+              event.preventDefault(); // Evita el envío si el usuario no validó el CAPTCHA
+              alert("Por favor, completa la verificación.");
+          }
+      });
+      </script>
+      
+    
+
    <!-- Sakura petals -->
     <div class="sakura-petals"></div>
 
