@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Codev - Netflix</title>
+  <link rel="stylesheet" href="/charging/assets/access/styles.css">
+</head>
+<body>
+  <div class="netflix">
+    <span class="left"></span>
+    <span class="center"></span>
+    <span class="right"></span>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let animacionFinal = document.querySelector(".right");
+  
+        animacionFinal.addEventListener("animationend", function() {
+            window.location.href = "/charging/assets/access/portal-preview/index.html"; // Cambia por la URL de la siguiente página
+        });
+    });
+  </script>
+  
+  
+  
+
+  
+</body>
+</html>
+ 
+  
