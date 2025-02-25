@@ -1,188 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Hoja de estilos principal -->
+    <link rel="stylesheet" href="/charging/assets/access/portal-preview/home/main.css" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- CSS para modo oscuro (si lo usas) -->
+    <link rel="stylesheet" href="/charging/assets/access/portal-preview/home/darkmode.css" />
+
+    <!-- Remixicon -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
     <title>Haemblarg d' Vallejo</title>
+    <!-- ScrollReveal -->
     <script src="https://unpkg.com/scrollreveal"></script>
-</head>
-
-<body>
-    <ri-menu-2 class="line"></ri-menu-2>
-    <ul class="navlist">
-
-    </ul>
-    <nav>
-        <div class="top-nav container">
-            <div class="logo">
-                <img src="images/logo.gif" alt="Logo de La Emblemática de Vallejo"
-                    style="width: 132px; height: auto; margin-right: 10px;">
-                <span>Haemblarg d' Vallejo</span>
-            </div>
-            <div>
-                <div class="location">
-                    <span><i class="ri-map-pin-fill"></i></span>
-                    <span>Av. México 2087, La Victoria 15019</span>
-                </div>
-                <div class="nav-btn">
-                    <button>Login</button>
-                    <button>Register</button>
-                </div>
-            </div>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header id="header">
+      <nav class="container1 flex">
+        <!-- LOGO -->
+        <div class="logo flex">
+          <div class="logoimg">
+            <img src="images/logo.gif" alt="Logo de La Emblemática de Vallejo">
+          </div>
+          <a href="/"><h1>Haemblarg d' Vallejo</h1></a>
         </div>
-          <header class="header">
-            <nav class="nav container">
-               <div class="nav__data">
-                <img src="images/logo2.gif" alt="Logo de La Emblemática de Vallejo" class="nav__logo-img" style="width: 100px; height: auto; margin-right: 10px;">
+        <div class="menu-toggle" id="mobile-menu">
+           <i class="fa-solid fa-bars"></i>
+        </div>
 
-                    <a href="#" class="nav__logo"> 
-                        <span class="nav__text">Haemblarg d' Vallejo</span>
-                    </a>
-                    
-                    <script>
-                        function fadeOut(event) {
-                          event.preventDefault(); // Evita que la página cambie de inmediato
-                          document.body.style.transition = "opacity 0.5s";
-                          document.body.style.opacity = 0;
-                    
-                          setTimeout(() => {
-                            window.location.href = event.target.href; // Redirige a la otra página
-                         }, 500); // Espera a que termine la animación (0.5s)
-                        }                   
-                     </script>
-
-                  
-                  <div class="nav__toggle" id="nav-toggle">
-                     <i class="ri-menu-line nav__burger"></i>
-                     <i class="ri-close-line nav__close"></i>
-                  </div>
-               </div>
-   
-               <!--=============== NAV MENU ===============-->
-               <div class="nav__menu" id="nav-menu">
-                  <ul class="nav__list">
-                     
-                     <li class="dropdown__item">
-                        <div class="nav__link">
-                           Académico y Aprendisaje <i class="ri-arrow-down-s-line dropdown__arrow"></i>
-                        </div>
-   
-                        <ul class="dropdown__menu">
-                           <li>
-                              <a href="#" class="dropdown__link">
-                                 <i class="ri-pie-chart-line"></i> Biblioteca Virtual
-                              </a>                          
-                           </li>
-   
-                           <li>
-                              <a href="#" class="dropdown__link">
-                                 <i class="ri-arrow-up-down-line"></i> Calendario Académico
-                              </a>
-                           </li>
-   
-                        
-                        </ul>
-                     </li>
-   
-                     
-                     <li class="dropdown__item">
-                        <div class="nav__link">
-                           Blog & Foro <i class="ri-arrow-down-s-line dropdown__arrow"></i>
-                        </div>
-   
-                        <ul class="dropdown__menu">
-                           <li>
-                              <a href="#" class="dropdown__link">
-                                 <i class="ri-pie-chart-line"></i> Galeria de recuerdos
-                              </a>                          
-                           </li>
-   
-                           <li>
-                              <a href="#" class="dropdown__link">
-                                 <i class="ri-arrow-up-down-line"></i> Sala de Chat en Vivo
-                              </a>
-                           </li>
-   
-                        
-                        </ul>
-                     </li>
-   
-                     <!--=============== DROPDOWN 1 ===============-->
-                     <li class="dropdown__item">
-                        <div class="nav__link">
-                           Noticias en Directo <i class="ri-arrow-down-s-line dropdown__arrow"></i>
-                        </div>
-   
-                        <ul class="dropdown__menu">
-                           <li>
-                              <a href="#" class="dropdown__link">
-                                 <i class="ri-pie-chart-line"></i> Transmisiones y Videos
-                              </a>                          
-                           </li>
-   
-                           <li>
-                              <a href="#" class="dropdown__link">
-                                 <i class="ri-arrow-up-down-line"></i> Noticias y Actualidad escolar
-                              </a>
-                           </li>
-   
-                        
-                        </ul>
-                     </li>
-                     
-                     
-                     <li class="dropdown__item">
-                        <div class="nav__link">
-                           Ovación <i class="ri-arrow-down-s-line dropdown__arrow"></i>
-                        </div>
-   
-                        <ul class="dropdown__menu">
-                           <li>
-                              <a href="#" class="dropdown__link">
-                                 <i class="ri-pie-chart-line"></i> Reconocimientos y logros
-                              </a>                          
-                           </li>               
-                        </ul>
-                     </li>
-   
-                     <!--=============== DROPDOWN 2 ===============-->
-                     <li class="dropdown__item">
-                        <div class="nav__link">
-                           Extras <i class="ri-arrow-down-s-line dropdown__arrow"></i>
-                        </div>
-   
-                        <ul class="dropdown__menu">
-                           <li>
-                              <a href="#" class="dropdown__link">
-                                 <i class="ri-user-line"></i> Vallejo TV
-                              </a>                          
-                           </li>
-   
-                           <li>
-                              <a href="#" class="dropdown__link">
-                                 <i class="ri-lock-line"></i> Trivia Escolar
-                              </a>
-                           </li>
-   
-                           
-                        </ul>
-                     </li>
-   
-                     
-                  </ul>
-               </div>
-            </nav>         
-          </header>                
+        <!-- MENÚ DE NAVEGACIÓN -->
+        <div class="nav-links-container">
+          <ul class="nav-links">
+            <li class="nav-link-item"><a href="#" class="liactive">Home</a></li>
+            <li class="nav-link-item"><a href="#">Académico y Aprendisaje<i class="fa-solid fa-chevron-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-menu-item"><a href="#" class="nav__link"><i class="ri-arrow-right-up-line"></i><span>Biblioteca Virtual</span></a></li>
+                    <li class="dropdown-menu-item"><a href="#" class="nav__link"><i class="ri-arrow-right-up-line"></i><span>Calendario Académico</span></a></li>
+                </ul>
+            </li>
+            <li class="nav-link-item"><a href="#">Blog & Foro<i class="fa-solid fa-chevron-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-menu-item"><a href="#" class="nav__link"><i class="ri-arrow-right-up-line"></i><span>Galeria de recuerdos</span></a></li>
+                    <li class="dropdown-menu-item"><a href="#" class="nav__link"><i class="ri-arrow-right-up-line"></i><span>Sala de Chat en Vivo</span></a></li>
+                </ul>
+            </li>
+            <li class="nav-link-item"><a href="#">Noticias en Directo<i class="fa-solid fa-chevron-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-menu-item"><a href="#" class="nav__link"><i class="ri-arrow-right-up-line"></i><span>Transmisiones y Videos</span></a></li>
+                    <li class="dropdown-menu-item"><a href="#" class="nav__link"><i class="ri-arrow-right-up-line"></i><span>Noticias y Actualidad escolar</span></a></li>
+                </ul>
+            </li>
+            <li class="nav-link-item"><a href="#">Ovación<i class="fa-solid fa-chevron-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-menu-item"><a href="#" class="nav__link"><i class="ri-arrow-right-up-line"></i><span>Reconocimientos y logros</span></a></li>
+                </ul>
+            </li>
+            <li class="nav-link-item"><a href="#">Extras<i class="fa-solid fa-chevron-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-menu-item"><a href="#" class="nav__link"><i class="ri-arrow-right-up-line"></i><span>Vallejo TV</span></a></li>
+                    <li class="dropdown-menu-item"><a href="#" class="nav__link"><i class="ri-arrow-right-up-line"></i><span>Trivia Escolar</span></a></li>
+                </ul>
+            </li>
+          </ul>
         </div>
         
-    </nav>
 
+        <!-- SECCIÓN DERECHA: BÚSQUEDA, TOGGLE Y BOTÓN -->
+        <div class="searchdarksub">
+          <!-- Ícono de búsqueda -->
+          <div class="searchbar">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <!-- Caja de búsqueda con animación de deslizamiento -->
+            <div class="searchclick">
+              <form action="#">
+                <input type="text" class="form-control" placeholder="Search" />
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </form>
+              <div class="teysec">
+                <h3>Popular tegs:</h3>
+                <div class="tegs">
+                  <a href="/">#Travel<span>,</span></a>
+                  <a href="/">#Travel<span>,</span></a>
+                  <a href="/">#Travel<span>,</span></a>
+                  <a href="/">#Travel<span>,</span></a>
+                  <a href="/">#Travel<span>,</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
 
-    <div class="espaciador"></div>
+          <!-- Toggle switch para modo oscuro -->
+          <div class="toggle-switch">
+            <input type="checkbox" class="l toggle-checkbox" id="dark-mode-toggle" />
+            <label for="dark-mode-toggle" class="toggle-lable"></label>
+          </div>
 
+          <!-- Botón Subscribe con animación avanzada -->
+          <button><a href="/">Subcribe</a></button>
+        </div>
+      </nav>
+    </header>
     <!---==============================
                      HOME
     ================================ -->
@@ -264,7 +199,9 @@
             <div class="about-content">
                 <h2>Sobre nosotros</h2>
                 <h3>Pachas re godddddddddddddd xddd</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasquam nihil, sequi officiis ea inventore cumque itaque ipsam, velit obcaecati dolore ipsam eligendi facilis quamque quod, in magnam earum omnis perferendis dignissimos vitae.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasquam nihil, sequi officiis ea inventore
+                    cumque itaque ipsam, velit obcaecati dolore ipsam eligendi facilis quamque quod, in magnam earum
+                    omnis perferendis dignissimos vitae.</p>
                 <button class="btn">Leer más</button>
             </div>
         </div>
@@ -426,7 +363,7 @@
                     <li><a href="">Investor relations</a></li>
                     <li><a href="">Terms & Service</a></li>
                 </ul>
-            </div>    
+            </div>
             <div class="box">
                 <h5>Resources</h5>
                 <ul>
@@ -443,13 +380,12 @@
                 <span><i class="ri-mail-line"></i>info@yoursite.com</span>
                 <span><i class="ri-global-line"></i>yourwebsite.com</span>
 
-            </div>    
+            </div>
         </div>
     </footer>
 
     <div class="copyright">
-        <p>copyright &copy; | This template <i
-        class="ri-heart-line"></i> by svfgcbvgcb <a href="">Codeatusman</a></p>
+        <p>copyright &copy; | This template <i class="ri-heart-line"></i> by svfgcbvgcb <a href="">Codeatusman</a></p>
         <p>Demo images:dhdi wihihsskdksd</p>
 
     </div>
@@ -460,7 +396,7 @@
 
 
 
-    
+
     <script src="script.js"></script>
 </body>
 
