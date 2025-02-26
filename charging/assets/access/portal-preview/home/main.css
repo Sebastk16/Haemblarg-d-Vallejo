@@ -929,12 +929,12 @@ header nav {
     display: flex;
     align-items: center;
     position: relative;
-    margin-left: -60px; /* Ajusta el valor negativo según lo necesites */
-    gap: 10px; /* Equivalente a margin-right: 10px en el inline style */
+    margin-left: -60px; /* Ajusta este valor según necesites */
+    gap: 10px; /* Espaciado entre el logo y el texto */
 }
 
 .logoimg {
-    width: 130px;
+    width: 135px;
     height: auto;
 }
 
@@ -943,13 +943,18 @@ header nav {
     height: auto;
 }
 
-
 .logo a h1 {
-  font-size: 23px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  color: #555;
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #555;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el texto horizontalmente */
+    text-align: center; /* Asegura que todo el texto esté centrado */
+    line-height: 1.2; /* Ajusta el espacio entre líneas */
 }
+
 
 /* MENÚ DE NAVEGACIÓN */
 .nav-links-container {
@@ -1313,34 +1318,63 @@ header nav {
 
 
 
-/* MENÚ HAMBURGUESA */
 .menu-toggle {
     display: none;
     cursor: pointer;
     font-size: 24px;
     color: #94a9c9;
+     /* Asegura que esté encima del contenido */
 }
 
+
+/* Estilos para móviles y pantallas menores a 1024px */
 @media screen and (max-width: 1024px) {
     .menu-toggle {
         display: block;
     }
+
     .nav-links-container {
         display: none;
         flex-direction: column;
-        position: absolute;
+        position: fixed;
         top: 60px;
         left: 0;
         width: 100%;
         background-color: white;
-        padding: 10px 0;
+        padding: 15px 0;
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        transition: all 0.3s ease-in-out;
     }
+
     .nav-links-container.active {
-        display: flex;
+        display: block; /* Cambio a block en lugar de flex para mejor estructura */
     }
+
     .nav-links {
         flex-direction: column;
+        align-items: center;
         gap: 10px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    .nav-link-item {
+        text-align: center;
+        padding: 10px 0;
+        width: 100%;
+    }
+
+    .dropdown-menu {
+        display: none;
+        flex-direction: column;
+        background-color: #f8f8f8;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .nav-link-item:hover .dropdown-menu {
+        display: flex;
     }
 }
