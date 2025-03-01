@@ -1,0 +1,360 @@
+/* Variables de color y tipografía */
+:root {
+    --primary-color: #1f1f1f;
+    --accent-color: #e50914;
+    --background-color: #f0f2f5;
+    --text-color: #333;
+    --hero-text-color: #fff;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Reset básico */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Base del body */
+  body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+  
+  /* Encabezado */
+  header {
+    background-color: var(--primary-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .header-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .logo a {
+    text-decoration: none;
+    color: var(--accent-color);
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+  
+  /* Menú Hamburguesa */
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .menu-toggle span {
+    background: #fff;
+    height: 3px;
+    width: 25px;
+    margin: 4px 0;
+    border-radius: 2px;
+  }
+  
+  /* Menú de Navegación */
+  nav ul.menu {
+    list-style: none;
+    display: flex;
+  }
+  
+  nav ul.menu li {
+    position: relative;
+    margin: 0 15px;
+  }
+  
+  nav ul.menu li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    padding: 5px 0;
+    transition: color 0.3s;
+  }
+  
+  nav ul.menu li a:hover {
+    color: var(--accent-color);
+  }
+  
+  /* Dropdown de Categorías */
+  nav ul.menu li.submenu ul.dropdown {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    background-color: var(--primary-color);
+    display: none;
+    list-style: none;
+    padding: 10px 0;
+    min-width: 180px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  nav ul.menu li.submenu:hover ul.dropdown {
+    display: block;
+  }
+  
+  nav ul.menu li.submenu ul.dropdown li a {
+    padding: 10px 15px;
+    display: block;
+    color: #fff;
+    transition: background 0.3s;
+  }
+  
+  nav ul.menu li.submenu ul.dropdown li a:hover {
+    background: #3a3a3a;
+  }
+  
+  /* Sección Hero para Matemáticas */
+  .hero {
+    position: relative;
+    background: url('math-bg.jpg') center/cover no-repeat;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background-attachment: fixed;
+  }
+  
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+    z-index: 1;
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+  }
+  
+  .hero-content.animate {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: var(--hero-text-color);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    animation: fadeInDown 1s ease-out;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    color: var(--hero-text-color);
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease-out;
+  }
+  
+  /* Catálogo (Grid) */
+  .grid {
+    max-width: 1200px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+  }
+  
+  /* Tarjetas de Libros */
+  .card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  }
+  
+  .card-image img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover .card-image img {
+    transform: scale(1.05);
+  }
+  
+  .card-content {
+    padding: 15px;
+    text-align: left;
+  }
+  
+  .card-content h3 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: var(--text-color);
+  }
+  
+  .read-button {
+    background: var(--accent-color);
+    border: none;
+    padding: 10px 15px;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .read-button:hover {
+    background: #bf0810;
+  }
+  
+  /* Footer */
+  footer {
+    background: var(--primary-color);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  /* Animaciones */
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Responsive */
+  /* Estilos mejorados para pantallas pequeñas */
+@media (max-width: 768px) {
+  .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      z-index: 1100;
+      background: none;
+      border: none;
+      padding: 10px;
+  }
+
+  .menu-toggle span {
+      background: #fff;
+      height: 3px;
+      width: 30px;
+      margin: 5px 0;
+      border-radius: 2px;
+      transition: all 0.3s ease-in-out;
+  }
+
+  /* Efecto de transformación en el icono de hamburguesa */
+  .menu-toggle.active span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+  }
+
+  .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+  }
+
+  .menu-toggle.active span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Menú deslizante */
+  nav ul.menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: rgba(31, 31, 31, 0.95);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-in-out;
+      border-radius: 0 0 10px 10px;
+  }
+
+  nav ul.menu.show {
+      max-height: 500px; /* Altura suficiente para desplegar todo el menú */
+  }
+
+  nav ul.menu li {
+      width: 100%;
+      text-align: center;
+      padding: 10px 0;
+  }
+
+  nav ul.menu li a {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #fff;
+      transition: background 0.3s;
+  }
+
+  nav ul.menu li a:hover {
+      background: var(--accent-color);
+  }
+
+  /* Submenús en móviles */
+  nav ul.menu li.submenu ul.dropdown {
+      position: relative;
+      background: rgba(50, 50, 50, 0.9);
+      width: 100%;
+      display: none;
+      padding: 0;
+      box-shadow: none;
+      border-radius: 5px;
+  }
+
+  nav ul.menu li.submenu.open ul.dropdown {
+      display: block;
+  }
+
+  nav ul.menu li.submenu ul.dropdown li a {
+      font-size: 1rem;
+      padding: 10px;
+      color: #ddd;
+  }
+
+  nav ul.menu li.submenu ul.dropdown li a:hover {
+      background: var(--accent-color);
+      color: #fff;
+  }
+}
+
+  

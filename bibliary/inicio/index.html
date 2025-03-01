@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Matemáticas - Biblioteca Virtual: Descubre libros de matemáticas para ampliar tus conocimientos.">
+  <title>programacion - Biblioteca Virtual</title>
+  <link rel="stylesheet" href="/bibliary/inicio/style.css">
+</head>
+<body>
+  <!-- Encabezado -->
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <a href="index.html">Biblioteca</a>
+      </div>
+      <div class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav>
+        <ul class="menu">
+          <li><a href="/bibliary/inicio/index.html">Inicio</a></li>
+          <li><a href="/bibliary/vegas/index.html">Información</a></li>
+          <li class="submenu">
+            <a href="#categorias">Categorías</a>
+            <ul class="dropdown">
+              <li><a href="/bibliary/inicio/libreria/ciencias/index.html">Ciencias</a></li>
+              <li><a href="/bibliary/inicio/libreria/programacion/index.html">Programación</a></li>
+              <li><a href="/bibliary/inicio/libreria/AI/index.html">Inteligencia Artificial</a></li>
+              <li><a href="/bibliary/inicio/libreria/literatura/index.html">Literatura</a></li>
+              <li><a href="/bibliary/inicio/index.html">Matemáticas</a></li>
+              <li><a href="/bibliary/inicio/libreria/historia/index.html">Historia</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Sección Hero Matemáticas -->
+  <section id="hero-matematicas" class="hero">
+    <div class="hero-overlay">
+    </div>
+    <div class="hero-content">
+      <h1>Matemáticas</h1>
+      <p>Explora nuestra colección de libros de matemáticas, desde fundamentos básicos hasta temas avanzados, y expande tus conocimientos.</p>
+    </div>
+  </section>
+
+  <!-- Catálogo de Libros de Matemáticas -->
+  <main>
+    <section id="catalogo" class="grid">
+      <div class="card">
+        <div class="card-image">
+          <img src="/bibliary/images/mate1.jpeg" alt="Álgebra Avanzada">
+        </div>
+        <div class="card-content">
+          <h3>Álgebra A.Baldor</h3>
+          <h3>Grupo Editorial Patria</h3>
+          <h3>1972</h3>
+          <button class="read-button" data-url="https://heyzine.com/flip-book/c461a898ff.html">Leer Libro</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-image">
+          <img src="/bibliary/images/mate2.webp" alt="Cálculo Integral">
+        </div>
+        <div class="card-content">
+          <h3>Baldor Geometría y Trigonometria</h3>
+          <h3>Grupo Editorial Patria</h3>
+          <h3>1972</h3>
+          <button class="read-button" data-url="https://online.visual-paradigm.com/share/book/baldor---geometria-y-trigonometria-22v4yiathu">Leer Libro</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-image">
+          <img src="/bibliary/images/mate3.jpg" alt="Geometría Analítica">
+        </div>
+        <div class="card-content">
+          <h3>matematicas Simplificadas</h3>
+          <h3>Pearson Education</h3>
+          <h3>2013</h3>
+          <button class="read-button" data-url="https://heyzine.com/flip-book/44cdfc4c64.html">Leer Libro</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-image">
+          <img src="/bibliary/images/mate4.jpg" alt="Geometría Analítica">
+        </div>
+        <div class="card-content">
+          <h3>matematicas Basicas</h3>
+          <h3>Fundacion Universidad de Bogota Jose Tadeo Lozano</h3>
+          <h3>2011</h3>
+          <button class="read-button" data-url="https://heyzine.com/flip-book/b33ce1313b.html">Leer Libro</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Biblioteca Virtual. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Obtener todos los botones con la clase 'read-button'
+    const buttons = document.querySelectorAll('.read-button');
+    
+    // Agregar un event listener a cada botón para redirigir al hacer clic
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const url = button.getAttribute('data-url');
+        window.location.href = url; // Redirigir al URL
+      });
+    });
+  </script>
+
+<script src="/bibliary/inicio/script.js"></script>
+
+</body>
+</html>

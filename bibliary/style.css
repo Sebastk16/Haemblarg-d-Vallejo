@@ -1,0 +1,136 @@
+/* Variables de color y tipografía */
+:root {
+    --primary-color: #1f1f1f;
+    --accent-color: #e50914;
+    --background-color: #f0f2f5;
+    --text-color: #fff;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Reset básico */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Base del body */
+  body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+  
+  /* Sección Hero */
+  .hero {
+    position: relative;
+    background: url('/bibliary/images/liber.jpeg') center center/cover no-repeat;
+
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    /* Fondo fijo para efecto parallax */
+    background-attachment: fixed;
+  }
+  
+  /* Overlay con gradiente para mejorar la legibilidad */
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 100%);
+    z-index: 1;
+  }
+  
+  /* Contenido del Hero */
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px;
+    opacity: 0;
+    transform: scale(0.95);
+    /* Animación de entrada, se activará desde JS */
+    transition: opacity 1s ease-out, transform 1s ease-out;
+  }
+  
+  .hero-content.animate {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  /* Títulos y párrafos con animación CSS */
+  .hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    animation: fadeInDown 1s ease-out;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    animation: fadeInUp 1s ease-out;
+  }
+  
+  /* Botón de llamada a la acción */
+  .cta {
+    display: inline-block;
+    background: var(--accent-color);
+    color: var(--text-color);
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.3s ease;
+    animation: fadeInUp 1s ease-out;
+  }
+  
+  .cta:hover {
+    background: #bf0810;
+    transform: scale(1.05);
+  }
+  
+  /* Keyframes de animación */
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Bounce para el botón al hacer clic */
+  @keyframes bounce {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.1); }
+    50% { transform: scale(0.95); }
+    70% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  .bounce {
+    animation: bounce 0.3s ease-out;
+  }
+  
