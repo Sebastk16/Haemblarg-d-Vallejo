@@ -1,0 +1,400 @@
+/* Estilos generales */
+body {
+    background-color: #121212;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+header {
+    background: linear-gradient(90deg, #ff007f, #8a2be2);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 32px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Secciones */
+section {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+    padding: 10px;
+}
+
+iframe {
+    width: 100%;
+    height: 250px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+iframe:hover {
+    transform: scale(1.05);
+}
+
+/* Estilo para el indicador de estado en vivo */
+.live-indicator {
+    display: inline-block;
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    animation: blink 1s infinite alternate;
+}
+
+@keyframes blink {
+    from { opacity: 1; }
+    to { opacity: 0.5; }
+}
+
+/* Botón de transmisión */
+.stream-button {
+    background-color: #ff007f;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.stream-button:hover {
+    background-color: #ff4da6;
+}
+
+/* Efecto de ondas de sonido en el fondo */
+@keyframes sound-wave {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+.sound-wave {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(255, 0, 127, 0.5);
+    border-radius: 50%;
+    animation: sound-wave 1.5s infinite;
+}
+
+
+/* Diseño del botón de música */
+.music-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(45deg, #ff007f, #8a2be2);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.music-button:hover {
+    transform: scale(1.1);
+    background: linear-gradient(45deg, #ff4da6, #9c4df5);
+}
+
+.music-button.active {
+    background: linear-gradient(45deg, #ff4da6, #9c4df5);
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.6);
+}
+
+
+/* 🎨 Modo Oscuro/Claro */
+:root {
+    --background-light: #f4f4f4;
+    --background-dark: #1e1e2e;
+    --text-light: #1e1e2e;
+    --text-dark: #ffffff;
+    --primary-color: #ff007f;
+    --secondary-color: #8a2be2;
+}
+
+body {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* 🎵 Reproductor flotante */
+.audio-player {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.9);
+    padding: 15px 25px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 0 20px #ff007f, 0 0 40px #8a2be2;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.audio-player:hover {
+    box-shadow: 0 0 30px #ff4da6, 0 0 60px #8a2be2;
+}
+
+/* 🔳 Sombras 3D en botones */
+button {
+    background: linear-gradient(135deg, #ff007f, #8a2be2);
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 4px 4px 8px rgba(255, 0, 127, 0.4);
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 6px 6px 12px rgba(255, 0, 127, 0.6);
+}
+
+.audio-player button {
+    background: var(--primary-color);
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.audio-player button:hover {
+    background: var(--secondary-color);
+}
+
+/* 🎙️ Tarjetas de Locutores */
+.locutor-card {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.locutor-card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.locutor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 6px 6px 15px rgba(255, 0, 127, 0.6);
+}
+
+/* 🎨 Modo Claro */
+.light-mode {
+    background-color: var(--background-light);
+    color: var(--text-light);
+}
+
+.light-mode .audio-player {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 10px var(--secondary-color);
+}
+
+.light-mode .locutor-card {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+
+/* 🎸 Glitch Effect para títulos */
+.glitch {
+    position: relative;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ff007f;
+    text-shadow: 2px 2px 5px rgba(255, 0, 127, 0.5);
+    animation: glitch-animation 1s infinite;
+}
+
+.glitch:hover::before,
+.glitch:hover::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0.8;
+}
+
+.glitch:hover::before {
+    color: cyan;
+    transform: translate(-2px, -2px);
+    clip-path: inset(0 0 50% 0);
+}
+
+.glitch:hover::after {
+    color: magenta;
+    transform: translate(2px, 2px);
+    clip-path: inset(50% 0 0 0);
+}
+
+/* 🎬 Interferencia al cambiar de sección */
+.section-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s;
+}
+
+.section-transition.active {
+    opacity: 1;
+}
+
+
+/* 🌊 Fondo animado */
+.animated-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(20, 20, 20, 0.8) 10%, rgba(0, 0, 0, 1) 90%);
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* 🎵 Ondas de sonido */
+.wave {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(90deg, #ff007f, #8a2be2);
+    animation: waveAnimation 4s infinite linear;
+    opacity: 0.7;
+}
+
+@keyframes waveAnimation {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+
+/* 🎛️ Estilos para los controles avanzados de audio */
+.audio-controls {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.audio-controls button {
+    background: linear-gradient(135deg, #ff007f, #8a2be2);
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 4px 4px 8px rgba(255, 0, 127, 0.4);
+}
+
+.audio-controls button:hover {
+    transform: translateY(-3px);
+    box-shadow: 6px 6px 12px rgba(255, 0, 127, 0.6);
+}
+
+.audio-slider {
+    width: 120px;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    background: #ff007f;
+    outline: none;
+    opacity: 0.8;
+    transition: opacity .2s;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.audio-slider:hover {
+    opacity: 1;
+}
+
+/* 🎵 Reproductor de Playlist */
+.music-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 0 10px #ff007f;
+    transition: all 0.3s ease-in-out;
+}
+
+.music-player button {
+    background: linear-gradient(135deg, #ff007f, #8a2be2);
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.music-player button:hover {
+    transform: scale(1.1);
+}
+
+
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+
+    <h1>video Galery</h1>
+    
+    <div class="video-container">
+        <div class="video"><video src="/Galery/images/video-1.mp4" muted></video></div>
+        <div class="video"><video src="/Galery/images/video-2.mp4" muted></video></div>
+        <div class="video"><video src="/Galery/images/video-3.mp4" muted></video></div>
+        <div class="video"><video src="/Galery/images/video-4.mp4" muted></video></div>
+        <div class="video"><video src="/Galery/images/video-5.mp4" muted></video></div>
+        <div class="video"><video src="/Galery/images/video-6.mp4" muted></video></div>
+    </div>
+
+    <div class="popup-video">
+        <span>&times;</span>
+        <video src="/Galery/images/video-1.mp4" muted autoplay controls></video>
+    </div>
+
+    </div>
+
+    <script>
+        document.querySelectorAll('.video-container video').forEach(vid => {
+             vid.onclick = () =>{
+                 document.querySelector('.popup-video').style.display = 'block';
+                 document.querySelector('.popular-video video').src = vid.getAttribute('src');
+        }
+});
+
+document.querySelector('.popup-video span').onclick = () =>{
+    document.querySelector('.popup-video').style.display = 'none';
+}   
+
+    </script>
+    
+</body>
+</html>
