@@ -104,32 +104,6 @@ iframe:hover {
 }
 
 
-/* Diseño del botón de música */
-.music-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: linear-gradient(45deg, #ff007f, #8a2be2);
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 30px;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.music-button:hover {
-    transform: scale(1.1);
-    background: linear-gradient(45deg, #ff4da6, #9c4df5);
-}
-
-.music-button.active {
-    background: linear-gradient(45deg, #ff4da6, #9c4df5);
-    box-shadow: 0 0 15px rgba(255, 0, 127, 0.6);
-}
 
 
 /* 🎨 Modo Oscuro/Claro */
@@ -149,57 +123,7 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* 🎵 Reproductor flotante */
-.audio-player {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.9);
-    padding: 15px 25px;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    box-shadow: 0 0 20px #ff007f, 0 0 40px #8a2be2;
-    transition: box-shadow 0.3s ease-in-out;
-}
 
-.audio-player:hover {
-    box-shadow: 0 0 30px #ff4da6, 0 0 60px #8a2be2;
-}
-
-/* 🔳 Sombras 3D en botones */
-button {
-    background: linear-gradient(135deg, #ff007f, #8a2be2);
-    border: none;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    box-shadow: 4px 4px 8px rgba(255, 0, 127, 0.4);
-}
-
-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 6px 6px 12px rgba(255, 0, 127, 0.6);
-}
-
-.audio-player button {
-    background: var(--primary-color);
-    border: none;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.audio-player button:hover {
-    background: var(--secondary-color);
-}
 
 /* 🎙️ Tarjetas de Locutores */
 .locutor-card {
@@ -209,8 +133,8 @@ button:hover {
     border-radius: 10px;
     padding: 15px;
     margin: 10px;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
 }
 
 .locutor-card img {
@@ -221,24 +145,11 @@ button:hover {
 }
 
 .locutor-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 6px 6px 15px rgba(255, 0, 127, 0.6);
+    transform: scale(1.05);
+    box-shadow: 0px 0px 15px var(--primary-color);
 }
 
-/* 🎨 Modo Claro */
-.light-mode {
-    background-color: var(--background-light);
-    color: var(--text-light);
-}
 
-.light-mode .audio-player {
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 0 10px var(--secondary-color);
-}
-
-.light-mode .locutor-card {
-    background: rgba(0, 0, 0, 0.1);
-}
 
 
 /* 🎸 Glitch Effect para títulos */
@@ -321,56 +232,15 @@ button:hover {
 }
 
 
-/* 🎛️ Estilos para los controles avanzados de audio */
-.audio-controls {
-    position: fixed;
-    bottom: 80px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    z-index: 1000;
-}
 
-.audio-controls button {
-    background: linear-gradient(135deg, #ff007f, #8a2be2);
-    border: none;
-    color: white;
-    padding: 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    box-shadow: 4px 4px 8px rgba(255, 0, 127, 0.4);
-}
-
-.audio-controls button:hover {
-    transform: translateY(-3px);
-    box-shadow: 6px 6px 12px rgba(255, 0, 127, 0.6);
-}
-
-.audio-slider {
-    width: 120px;
-    -webkit-appearance: none;
-    appearance: none;
-    height: 6px;
-    background: #ff007f;
-    outline: none;
-    opacity: 0.8;
-    transition: opacity .2s;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.audio-slider:hover {
-    opacity: 1;
-}
 
 /* 🎵 Reproductor de Playlist */
 .music-player {
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
     background: rgba(0, 0, 0, 0.8);
     padding: 15px;
     border-radius: 10px;
@@ -397,4 +267,434 @@ button:hover {
 }
 
 
+/* 📅 Calendario de programas */
+.program-schedule {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.program-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background 0.3s ease-in-out;
+}
+
+.program-item.highlight {
+    background: linear-gradient(90deg, #ff007f, #8a2be2);
+    color: white;
+    font-weight: bold;
+}
+
+/* 🔔 Notificación emergente */
+.program-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 0, 127, 0.9);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 1000;
+}
+
+
+
+
+/* 🎨 Definir variables de color */
+:root {
+    --bg-light: #ffffff;
+    --text-light: #1e1e2e;
+    --bg-dark: #1e1e2e;
+    --text-dark: #ffffff;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* ☀️ Modo Claro */
+.light-mode {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+}
+
+/* 🎛️ Botón de cambio de modo */
+.mode-toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, #ff007f, #8a2be2);
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.mode-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* 📢 Estilo de notificaciones push */
+.push-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 0, 127, 0.9);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 1000;
+}
+
+
+/* 💬 Contenedor del chat */
+.chat-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 350px;
+    height: 450px;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(255, 0, 127, 0.5);
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+/* 🔄 Botón para minimizar */
+.chat-header {
+    background: linear-gradient(135deg, #ff007f, #8a2be2);
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.chat-body {
+    height: 85%;
+    overflow-y: auto;
+    display: none;
+}
+
+.chat-container.active .chat-body {
+    display: block;
+}
+
+/* 📩 Estilos para el chat interno */
+.internal-chat {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.chat-input {
+    display: flex;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 5px;
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.chat-input button {
+    padding: 5px 10px;
+    border: none;
+    background: #ff007f;
+    cursor: pointer;
+}
+
+
+
+
+
+/* 🔮 Efecto de texto holográfico */
+.holographic-text {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: rgba(0, 255, 255, 0.8);
+    text-shadow: 0px 0px 10px rgba(0, 255, 255, 0.8), 
+                 0px 0px 20px rgba(0, 255, 255, 0.6), 
+                 0px 0px 30px rgba(0, 255, 255, 0.4);
+    animation: holo-flicker 1.5s infinite alternate;
+}
+
+@keyframes holo-flicker {
+    0% { opacity: 0.8; text-shadow: 0px 0px 15px rgba(0, 255, 255, 0.6); }
+    100% { opacity: 1; text-shadow: 0px 0px 25px rgba(0, 255, 255, 0.8); }
+}
+
+/* 💎 Efecto de vidrio futurista */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 255, 255, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+.glass-panel:hover {
+    box-shadow: 0px 6px 20px rgba(0, 255, 255, 0.5);
+}
+
+/* 🎛️ Botones holográficos */
+.holo-button {
+    background: transparent;
+    border: 2px solid rgba(0, 255, 255, 0.6);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.6);
+}
+
+.holo-button:hover {
+    background: rgba(0, 255, 255, 0.2);
+    box-shadow: 0px 0px 25px rgba(0, 255, 255, 0.9);
+}
+
+/* 🔆 Luces interactivas */
+.cursor-light {
+    position: fixed;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.3) 0%, transparent 80%);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s linear;
+}
+
+/* 📡 Indicador de Calidad de Señal */
+.signal-meter {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    box-shadow: 0px 4px 10px rgba(0, 255, 255, 0.5);
+    text-align: center;
+}
+
+.signal-bar {
+    width: 100px;
+    height: 10px;
+    background: linear-gradient(to right, red, yellow, green);
+    border-radius: 5px;
+    transition: width 0.5s ease-in-out;
+}
+
+/* ⚠️ Alerta holográfica si la señal cae */
+.alert-hologram {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.8);
+    display: none;
+    animation: flicker 1s infinite alternate;
+}
+
+@keyframes flicker {
+    0% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+/* 📊 Gráficos en Tiempo Real */
+#listenersChart {
+    max-width: 400px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 255, 255, 0.3);
+}
+
+/* 🎵 Ondas de sonido interactivas */
+.wave-visualizer {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wave {
+    width: 5px;
+    height: 20px;
+    margin: 2px;
+    background: cyan;
+    border-radius: 3px;
+    animation: waveAnimation 1s infinite ease-in-out;
+}
+
+@keyframes waveAnimation {
+    0%, 100% { height: 20px; }
+    50% { height: 40px; }
+}
+
+/* 📱 Ajustes para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    header {
+        padding: 15px;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr; /* Solo una columna en móviles */
+    }
+
+    iframe {
+        height: 180px; /* Reduce la altura de los videos */
+    }
+
+    .music-player {
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 10px;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .chat-container {
+        width: 100%;
+        height: 350px;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        border-radius: 0;
+    }
+
+    .mode-toggle {
+        top: 10px;
+        right: 10px;
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .signal-meter {
+        left: 10px;
+        top: 10px;
+        font-size: 12px;
+    }
+
+    .locutor-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .locutor-card img {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 10px;
+    }
+
+    .program-schedule {
+        width: 100%;
+        max-width: 100%;
+        padding: 10px;
+    }
+}
+
+/* 📱 Botón flotante para abrir/cerrar el chat en móviles */
+.chat-toggle-btn {
+    position: fixed;
+    bottom: 60px;
+    right: 15px;
+    background: linear-gradient(135deg, #ff007f, #8a2be2);
+    border: none;
+    color: white;
+    padding: 12px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(255, 0, 127, 0.5);
+    transition: all 0.3s ease-in-out;
+}
+
+.chat-toggle-btn:hover {
+    transform: scale(1.1);
+}
+
+/* 💬 Chat flotante oculto por defecto en móviles */
+.chat-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 80%;
+    max-width: 350px;
+    height: 400px;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0px -4px 10px rgba(255, 0, 127, 0.5);
+    transition: all 0.3s ease-in-out;
+    display: none;  /* 🔴 Esto asegurará que inicie oculto */
+}
+
+/* 📌 Cuando el chat esté abierto */
+.chat-container.open {
+    display: block;
+}
+
+/* 📱 Ajustes en pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .chat-container {
+        width: 100%;
+        max-width: none;
+        height: 60vh;
+    }
+}
 

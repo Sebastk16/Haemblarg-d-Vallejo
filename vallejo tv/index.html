@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interfaz Futurista de Video</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+        }
+        .video-player {
+            width: 600px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+        }
+        .video-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .video-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        .video-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+        }
+        .thumbnail {
+            width: 60px;
+            height: 40px;
+            background: #000;
+            border-radius: 5px;
+        }
+        .play-icon {
+            width: 20px;
+            height: 20px;
+            background: rgba(0, 255, 255, 0.8);
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="video-player">
+            <video width="100%" controls>
+                <source src="video.mp4" type="video/mp4">
+                Tu navegador no soporta el video.
+            </video>
+        </div>
+        <div class="video-list">
+            <div class="video-item">
+                <div class="thumbnail"></div>
+                <div>
+                    <strong>Video título aquí</strong>
+                    <p>Descripción breve...</p>
+                </div>
+            </div>
+            <div class="video-item">
+                <div class="thumbnail"></div>
+                <div>
+                    <strong>Otro video</strong>
+                    <p>Descripción breve...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
