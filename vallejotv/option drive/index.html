@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir Video a Google Drive</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #4285F4, #34A853, #FBBC05, #EA4335);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            text-align: center;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .upload-container {
+            background: #282a36;
+            padding: 80px;
+            border-radius: 20px;
+            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3), -10px -10px 30px rgba(255, 255, 255, 0.1);
+            text-align: center;
+            width: 350px;
+        }
+        .upload-container img {
+            width: 100px;
+            margin-bottom: 15px;
+        }
+        input[type="file"] {
+            display: block;
+            margin: 10px auto;
+        }
+        .button {
+    background: linear-gradient(90deg, #A35DE2, #4A00E0);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 12px; /* Usar un valor específico para más consistencia */
+    font-size: 1.2em;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 15px rgba(163, 93, 226, 0.3);
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.button:hover {
+    transform: translateY(-3px) scale(1.07);
+    background: linear-gradient(90deg, #C06DE2, #6A00E0);
+    box-shadow: 0 6px 20px rgba(192, 109, 226, 0.5);
+}
+
+/* Efecto de iluminación en hover */
+.button::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 10%, transparent 80%);
+    transition: all 0.6s ease;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+}
+
+.button:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+        #progress-container {
+            width: 100%;
+            background: #ddd;
+            height: 20px;
+            margin-top: 10px;
+            display: none;
+            border-radius: 5px;
+        }
+        #progress-bar {
+            height: 100%;
+            width: 0%;
+            background: #4285F4;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+
+        .file-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(90deg, #19a689, #159573);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Arial', sans-serif;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 12px rgba(25, 166, 137, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.file-label:hover {
+    background: linear-gradient(90deg, #17c69d, #13a57f);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(25, 166, 137, 0.4);
+}
+
+.file-label:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 8px rgba(25, 166, 137, 0.2);
+}
+
+/* Animación de brillo al pasar el cursor */
+.file-label::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 250%;
+    height: 250%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 10%, transparent 80%);
+    transform: translate(-50%, -50%) scale(0);
+    transition: all 0.6s ease;
+    opacity: 0;
+}
+
+.file-label:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+/* Estilo del icono */
+.file-label img {
+    width: 24px; /* Tamaño ligeramente mayor para más claridad */
+    height: 24px;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    margin-left: 8px; /* Espaciado más uniforme */
+    opacity: 0.9;
+    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.2)); /* Sombras más sutiles */
+}
+
+.file-label:hover img {
+    transform: scale(1.15) rotate(5deg); /* Pequeño giro para más dinamismo */
+    opacity: 1;
+}
+
+.file-label:active img {
+    transform: scale(0.95); /* Efecto de pulsación */
+    opacity: 0.8;
+}
+
+
+/* Ocultar input de archivo */
+#file-input {
+    display: none;
+}
+
+
+/* From Uiverse.io by hakemdamer222 */ 
+button,
+button:focus {
+  font-size: 17px;
+  padding: 10px 25px;
+  border-radius: 0.7rem;
+  background-image: linear-gradient(rgb(214, 202, 254), rgb(158, 129, 254));
+  border: 2px solid rgb(50, 50, 50);
+  border-bottom: 5px solid rgb(50, 50, 50);
+  box-shadow: 0px 1px 6px 0px rgb(158, 129, 254);
+  transform: translate(0, -3px);
+  cursor: pointer;
+  transition: 0.2s;
+  transition-timing-function: linear;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+button:active {
+  transform: translate(0, 0);
+  border-bottom: 2px solid rgb(50, 50, 50);
+}
+
+    </style>
+</head>
+<body>
+    <div class="upload-container">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfRk_6Nz1QYyrbNi5GO4fEGO_ktzFSd6PPYfrlVH2idcw6FJQ/viewform?embedded=true&pli=1">
+            Cargando…
+        </iframe>
+        
+   </div>
+
+   <button onclick="window.location.href='/index.html'">Volver</button>
+
+    
+</html>

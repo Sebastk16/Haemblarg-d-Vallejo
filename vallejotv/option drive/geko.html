@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Incrustado</title>
+    <style>
+        /* Estilos para el contenedor del formulario */
+        .upload-container {
+            background: #282a36;
+            padding: 80px;
+            border-radius: 20px;
+            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3), -10px -10px 30px rgba(255, 255, 255, 0.1);
+            text-align: center;
+            width: 350px;
+            margin: 0 auto; /* Centrar el contenedor */
+        }
+
+        /* Estilos para el iframe */
+        iframe {
+            width: 100%; /* Ajustar el ancho del iframe al 100% del contenedor */
+            height: 500px; /* Ajustar la altura según necesites */
+            border: none; /* Eliminar el borde del iframe */
+            background: transparent; /* Fondo transparente */
+        }
+    </style>
+</head>
+<body>
+    <div class="upload-container">
+        <h2 style="color: white; margin-bottom: 20px;">Sube tu archivo</h2>
+        <!-- Incrustar el formulario de Google Forms -->
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfRk_6Nz1QYyrbNi5GO4fEGO_ktzFSd6PPYfrlVH2idcw6FJQ/viewform?embedded=true&pli=1">
+            Cargando…
+        </iframe>
+    </div>
+</body>
+</html>

@@ -1,0 +1,468 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interfaz Futurista de Video</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Estilos originales */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes neonGlow {
+            0% { box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.9); }
+            100% { box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0px); }
+        }
+
+        body {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: white;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    overflow: auto; /* 🔥 Permite desplazamiento en móviles */
+    animation: fadeIn 1s ease-out;
+}
+
+
+        .container {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            margin-top: 50px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .video-player {
+            width: 640px;
+            height: 480px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+        }
+
+        .video-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 250px;
+    max-height: 400px; /* 🔥 Altura máxima para activar el scroll */
+    overflow-y: auto; /* 🔥 Scroll vertical si hay muchos videos */
+    padding-right: 5px; /* Espaciado para que el scrollbar no tape contenido */
+}
+
+/* Personalización del scrollbar */
+.video-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.video-list::-webkit-scrollbar-thumb {
+    background: rgba(0, 255, 255, 0.5);
+    border-radius: 4px;
+}
+
+.video-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 255, 255, 0.9);
+}
+
+/* 📱 Optimización para móviles */
+@media (max-width: 768px) {
+    .video-list {
+        width: 100%; /* 🔥 Que ocupe todo el ancho en móviles */
+        max-height: 300px; /* 🔥 Ajuste menor para móviles */
+    }
+}
+
+
+        .video-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .video-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.9);
+        }
+
+        .video-item:nth-child(1) { animation-delay: 0.2s; }
+        .video-item:nth-child(2) { animation-delay: 0.4s; }
+        .video-item:nth-child(3) { animation-delay: 0.6s; }
+
+        .thumbnail {
+            width: 60px;
+            height: 40px;
+            background: #000;
+            border-radius: 5px;
+            animation: neonGlow 2s infinite alternate;
+        }
+
+        .search-container {
+            width: 250px;
+            margin-bottom: 10px;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            transition: 0.3s ease-in-out;
+        }
+
+        .search-bar::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .search-bar:focus {
+            box-shadow: 0 0 10px #00ffff;
+        }
+
+        /* 🔥 Botón flotante de "Subir Video" */
+        .upload-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #00ffff;
+            background: transparent;
+            border: 2px solid #00ffff;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: 0.3s ease-in-out;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            animation: float 3s infinite ease-in-out;
+        }
+
+        .upload-btn:hover {
+            background: #00ffff;
+            color: #16213e;
+            box-shadow: 0 0 15px #00ffff;
+        }
+
+        /* 📌 Contenedor del menú flotante */
+        .menu-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .menu {
+            background: #151515;
+            border-radius: 16px;
+            padding: 19px;
+            width: 180px;
+            opacity: 0;
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            transform: translateY(20px) scale(0.5);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .menu-container.open .menu {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* 🌈 Animación en los ítems del menú */
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            font-size: 16px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 0;
+            transform: translateX(-15px);
+        }
+
+        .menu-container.open .menu-item {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .menu-container.open .menu-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+
+        .menu-container.open .menu-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+
+        .menu-item:hover {
+            transform: translateX(8px) scale(1.1);
+        }
+
+        /* 🚀 Botón de cierre con animación */
+        .toggle-btn {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #005eff, #00d4ff);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
+        .menu-container.open .toggle-btn {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .toggle-btn:hover {
+            transform: scale(1.2);
+        }
+
+        /* 🌟 Animación flotante del botón */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* 🌈 Colores personalizados */
+        .google-drive {
+            background: linear-gradient(45deg, #0F9D58, #F4B400, #4285F4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+        }
+
+        .cloudinary {
+            background: linear-gradient(45deg, #00ADEF, #6EE7B7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+        }
+
+
+        @media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        transform: scale(0.65); /* Aumentamos un 10% más sobre el 55% anterior */
+        
+        margin-top: -125px; /* Mueve hacia arriba */
+
+        
+    }
+
+    .video-player {
+        width: 95%;
+        height: auto;
+    }
+
+    .video-list {
+        width: 86%;
+    }
+
+    .video-item {
+        width: 96%;
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+
+    <div class="search-container">
+        <input type="text" id="search" class="search-bar" placeholder="🔎 Buscar video..." onkeyup="filtrarVideos()">
+    </div>
+
+    <div class="container">
+        <div class="video-player">
+            <iframe id="main-video" src="https://drive.google.com/file/d/13L9lZ83k96O-14AE1ceOQs1uS6J6FTFw/preview" width="640" height="480" allow="autoplay"></iframe>
+        </div>
+
+        <div class="video-list" id="video-list">
+            <div class="video-item" onclick="cambiarVideo('https://drive.google.com/file/d/13L9lZ83k96O-14AE1ceOQs1uS6J6FTFw/preview')">
+                <div class="thumbnail"></div>
+                <div>
+                    <strong>Video 1</strong>
+                    <p>Descripción breve...</p>
+                </div>
+            </div>
+            <div class="video-item" onclick="cambiarVideo('https://drive.google.com/file/d/1ABC2DEFGHIJKLMNOP/preview')">
+                <div class="thumbnail"></div>
+                <div>
+                    <strong>Video 2</strong>
+                    <p>Descripción breve...</p>
+                </div>
+            </div>
+            <div class="video-item" onclick="cambiarVideo('https://drive.google.com/file/d/2XYZ123456789ABCDEFGHI/preview')">
+                <div class="thumbnail"></div>
+                <div>
+                    <strong>Video 3</strong>
+                    <p>Descripción breve...</p>
+                </div>
+            </div>
+            <div class="video-item" onclick="cambiarVideo('https://drive.google.com/file/d/2XYZ123456789ABCDEFGHI/preview')">
+                <div class="thumbnail"></div>
+                <div>
+                    <strong>Video 3</strong>
+                    <p>Descripción breve...</p>
+                </div>
+            </div>
+            <div class="video-item" onclick="cambiarVideo('https://drive.google.com/file/d/2XYZ123456789ABCDEFGHI/preview')">
+                <div class="thumbnail"></div>
+                <div>
+                    <strong>Video 3</strong>
+                    <p>Descripción breve...</p>
+                </div>
+            </div>
+            <div class="video-item" onclick="cambiarVideo('https://drive.google.com/file/d/2XYZ123456789ABCDEFGHI/preview')">
+                <div class="thumbnail"></div>
+                <div>
+                    <strong>Video 3</strong>
+                    <p>Descripción breve...</p>
+                </div>
+            </div>
+            <div class="video-item" onclick="cambiarVideo('https://drive.google.com/file/d/2XYZ123456789ABCDEFGHI/preview')">
+                <div class="thumbnail"></div>
+                <div>
+                    <strong>Video 3</strong>
+                    <p>Descripción breve...</p>
+                </div>
+            </div>
+            <div class="video-item" onclick="cambiarVideo('https://drive.google.com/file/d/2XYZ123456789ABCDEFGHI/preview')">
+                <div class="thumbnail"></div>
+                <div>
+                    <strong>Video 3</strong>
+                    <p>Descripción breve...</p>
+                </div>
+            </div>
+            <div class="video-item" onclick="cambiarVideo('https://drive.google.com/file/d/2XYZ123456789ABCDEFGHI/preview')">
+                <div class="thumbnail"></div>
+                <div>
+                    <strong>Video 3</strong>
+                    <p>Descripción breve...</p>
+                </div>
+            </div>
+            <div class="video-item" onclick="cambiarVideo('https://drive.google.com/file/d/2XYZ123456789ABCDEFGHI/preview')">
+                <div class="thumbnail"></div>
+                <div>
+                    <strong>Video 3</strong>
+                    <p>Descripción breve...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+        <!-- 📤 Botón de subir video -->
+    <button class="upload-btn"><span>📤 Subir Video</span></button>
+
+    <!-- 📌 Menú flotante oculto -->
+    <div class="menu-container">
+        <div class="menu">
+            <a href="/option drive/drive.html" target="_blank" class="menu-item google-drive">
+                <i class="fa-brands fa-google-drive"></i> GOOGLE DRIVE
+            </a>
+            <a href="/option cloudinary/index.html" target="_blank" class="menu-item cloudinary">
+                <i class="fa-solid fa-cloud"></i> CLOUDINARY
+            </a>
+        </div>
+        <div class="toggle-btn">✖</div>
+    </div>
+    
+
+    <script>
+        function cambiarVideo(videoSrc) {
+            document.getElementById("main-video").src = videoSrc;
+            document.getElementById("main-video").play();
+        }
+
+        function filtrarVideos() {
+            let input = document.getElementById("search").value.toLowerCase();
+            let videos = document.querySelectorAll(".video-item");
+
+            videos.forEach(video => {
+                let titulo = video.querySelector("strong").textContent.toLowerCase();
+                video.style.display = titulo.includes(input) ? "flex" : "none";
+            });
+        }
+
+
+        const uploadBtn = document.querySelector(".upload-btn");
+        const menuContainer = document.querySelector(".menu-container");
+        const toggleBtn = document.querySelector(".toggle-btn");
+
+        // 📌 Al hacer clic en "Subir Video", se muestra el menú con animaciones
+        uploadBtn.addEventListener("click", () => {
+            menuContainer.style.display = "flex"; // Mostrar el menú flotante
+            setTimeout(() => {
+                menuContainer.classList.add("open"); // Activar animaciones
+            }, 10);
+            uploadBtn.style.display = "none"; // Ocultar botón
+        });
+
+        // 📌 Al hacer clic en "✖", se cierra con animación
+        toggleBtn.addEventListener("click", () => {
+            menuContainer.classList.remove("open"); // Ocultar animaciones
+            setTimeout(() => {
+                menuContainer.style.display = "none"; // Ocultar menú tras animación
+                uploadBtn.style.display = "block"; // Mostrar botón de nuevo
+            }, 400);
+        });
+    </script>
+
+</body>
+</html>
