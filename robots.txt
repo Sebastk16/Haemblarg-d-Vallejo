@@ -1,3 +1,4 @@
 User-agent: *
+Disallow:
 Allow: /
 Sitemap: https://haemblarg-d-vallejo.netlify.app/sitemap.xml
