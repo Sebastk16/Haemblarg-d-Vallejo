@@ -28,15 +28,8 @@
     <meta name="sitemap" content="https://haemblargdvallejo.netlify.app/sitemap.xml">
 
     <title>Haemblarg d' Vallejo</title>
+    <link rel="stylesheet" href="styles.css">
 
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-    <link rel="stylesheet" href="/sadex/styles.css">
-
-    
-    <!-- Agregamos FontAwesome para el ícono de check -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-    <!-- 🔍 JSON-LD (Para que Google entienda mejor tu web) -->
     <script type="application/ld+json">
         {
           "@context": "https://schema.org",
@@ -52,45 +45,107 @@
           ]
         }
         </script>
-        
 </head>
 <body>
-    <!-- Contenedor principal -->
-    <div class="container">
-        <h1 class="site-title">haemblargdvallejo.netlify.app</h1>
-        <p class="verification-text">Verifique que usted es un ser humano completando la acción a continuación.</p>
-        
-        <div class="captcha-box" id="captcha-box">
-            <!-- Cloudflare Turnstile -->
-            <div class="cf-turnstile" data-sitekey="0x4AAAAAAA8Su6Mvfrws-BB5" data-callback="verificar"></div>
-        </div>
-        
-        <p class="security-message">
-            haemblargdvallejo.netlify.app necesita revisar la seguridad de su conexión antes de continuar.
-        </p>
-        
-        <div class="loader" id="loader"></div>
-        <div class="message" id="message"></div>
-        
-        <hr class="linea-separadora">
 
-        <footer class="footer">
-            <p>Ray ID: <span class="ray-id">0x4AAAAAAA8Su6Mvfrws-BB5</span></p>
-            <p>Rendimiento y seguridad de <strong>Cloudflare</strong></p>
-        </footer>
+    <!-- Contenedor del botón con imagen de fondo -->
+    <div id="button-container">
+        <button id="start-button">
+            <span>HOLA</span>
+            <div class="glow"></div>
+        </button>
+    </div>
+    
+
+    <!-- Contenedor del video -->
+    <div id="video-container">
+        <!-- Video para laptops -->
+        <video id="video-laptop">
+            <source src="inicio_pc.webm" type="video/webm">
+            Tu navegador no soporta videos.
+        </video>
+
+        <!-- Video para móviles -->
+        <video id="video-movil">
+            <source src="inicio_movil.webm" type="video/webm">
+            Tu navegador no soporta videos.
+        </video>
     </div>
 
-    <!-- Contenedor de éxito -->
-    <div class="success-container">
-        <h1 class="site-title">chat.deepseek.com</h1>
-        <div class="check-icon">
-            <i class="fas fa-check-circle"></i> <!-- Ícono de check -->
-        </div>
-        <h2 class="success-title">Verificación exitosa</h2>
-        <p class="waiting-message">Espere a chat.deepseek.com para responder...</p>
-        <div class="loader"></div>
-    </div>
+    <script>
+        document.getElementById("start-button").addEventListener("click", function() {
+    let video, url, tiempoRedireccion;
 
-    <script src="/sadex/script.js"></script>
+    if (window.innerWidth >= 1024) {
+        video = document.getElementById("video-laptop");
+        url = "/charging/index.html"; // Redirección para laptops
+        tiempoRedireccion = 8000; // 8 segundos (según la duración del video)
+    } else {
+        video = document.getElementById("video-movil");
+        url = "/charging/index.html"; // Redirección para móviles
+        tiempoRedireccion =15000; // 5 segundos (según la duración del video)
+    }
+
+    // Ocultar el botón con transición suave
+    document.getElementById("button-container").style.opacity = "0";
+
+    setTimeout(() => {
+        document.getElementById("button-container").style.display = "none";
+        
+        // Mostrar y reproducir el video
+        video.style.display = "block";
+        video.play().catch(error => console.error("Error al reproducir el video:", error));
+
+        // Activar sonido
+        video.muted = false;
+        video.autoplay = true;
+
+        // Redirigir cuando termine el video
+        video.addEventListener("ended", function() {
+            window.location.href = url;
+        });
+
+        // Redirigir después de X segundos por seguridad
+        setTimeout(() => {
+            window.location.href = url;
+        }, tiempoRedireccion);
+
+    }, 1000); // 1 segundo de transición antes de mostrar el video
+});
+
+
+document.getElementById("start-button").addEventListener("click", function () {
+    let button = this;
+
+    // Desactivar botón para evitar múltiples clics
+    button.disabled = true;
+
+    // Efecto de partículas al hacer clic
+    for (let i = 0; i < 15; i++) {
+        let particle = document.createElement("div");
+        particle.classList.add("particle");
+        document.body.appendChild(particle);
+
+        let x = button.offsetLeft + Math.random() * button.offsetWidth;
+        let y = button.offsetTop + Math.random() * button.offsetHeight;
+
+        particle.style.left = `${x}px`;
+        particle.style.top = `${y}px`;
+
+        // Animación de partículas
+        setTimeout(() => {
+            particle.remove();
+        }, 1000);
+    }
+
+    // Efecto de desvanecimiento del botón
+    setTimeout(() => {
+        document.getElementById("button-container").style.opacity = "0";
+    }, 800);
+});
+
+
+    </script>
+
 </body>
 </html>
