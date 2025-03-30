@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- 🗺️ Sitemap (Ayuda a Google a indexar más rápido) -->
+    <meta name="sitemap" content="https://haemblargdvallejo.netlify.app/sitemap.xml">
+
+    <title>Security-Verification</title>
+
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <link rel="stylesheet" href="/preparing/security/sadex/styles.css">
+
+    <!-- Agregamos FontAwesome para el ícono de check -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- 🔍 JSON-LD (Para que Google entienda mejor tu web) -->
+    
+        
+</head>
+<body>
+    <!-- Contenedor principal -->
+    <div class="container">
+        <h1 class="site-title">haemblarg-d-vallejo.netlify.app</h1>
+        <img src="/imagenes/favicon.ico" alt="favicon" class="favicon-img">
+
+
+        <p class="verification-text">Verifique que usted es un ser humano completando la acción a continuación.</p>
+        
+        <div class="captcha-box" id="captcha-box">
+            <!-- Cloudflare Turnstile -->
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAA8Su6Mvfrws-BB5" data-callback="verificar"></div>
+        </div>
+        
+        <p class="security-message">
+            haemblarg-d-vallejo.netlify.app necesita revisar la seguridad de su conexión antes de continuar.
+        </p>
+        
+        <div class="loader" id="loader"></div>
+        <div class="message" id="message"></div>
+        
+        <hr class="linea-separadora">
+
+        <footer class="footer">
+            <p>Ray ID: <span class="ray-id">0x4AAAAAAA8Su6Mvfrws-BB5</span></p>
+            <p>Rendimiento y seguridad de <strong>Cloudflare</strong></p>
+        </footer>
+    </div>
+
+    <!-- Contenedor de éxito -->
+    <div class="success-container">
+        <h1 class="site-titles">haemblarg-d-vallejo.netlify.app</h1>
+        <div class="check-icon">
+            <i class="fas fa-check-circle"></i> <!-- Ícono de check -->
+        </div>
+        <h2 class="success-title">Verificación exitosa</h2>
+        <p class="waiting-message">Espere a chat.deepseek.com para responder...</p>
+        <div class="loader"></div>
+    </div>
+
+    <script src="/preparing/security/sadex/script.js"></script>
+</body>
+</html>

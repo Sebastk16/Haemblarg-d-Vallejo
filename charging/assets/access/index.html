@@ -7,20 +7,20 @@
   <link rel="stylesheet" href="/charging/assets/access/styles.css">
 </head>
 <body>
-  <div class="netflix">
-    <span class="left"></span>
-    <span class="center"></span>
-    <span class="right"></span>
-  </div>
+  <div class="video-container">
+    <video autoplay loop muted playsinline preload="auto">
+        <source src="/imagenes/PRESENTATION.webm" type="video/webm">
+        Tu navegador no soporta este video.
+    </video>
+</div>
+
 
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        let animacionFinal = document.querySelector(".right");
-  
-        animacionFinal.addEventListener("animationend", function() {
-            window.location.href = "/charging/assets/access/portal-preview/index.html"; // Cambia por la URL de la siguiente página
-        });
-    });
+     document.addEventListener("DOMContentLoaded", function() {
+      setTimeout(function() {
+          window.location.href = "/charging/assets/access/portal-preview/home/index.html"; // Reemplaza con la URL de la segunda página
+      }, 10400); // Redirección después de 8 segundos
+  });
   </script>
   
   

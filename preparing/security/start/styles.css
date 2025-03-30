@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: white;
+}
+
+#button-container {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: url('fondo.png') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease-in-out;
+    z-index: 10;
+}
+
+#start-button {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    padding: 15px 40px;
+    background: linear-gradient(45deg, #0ff, #00f, #f0f);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.7), 
+                0 0 20px rgba(0, 0, 255, 0.7), 
+                0 0 30px rgba(255, 0, 255, 0.7);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.3s ease-in-out;
+}
+
+#start-button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 10%, transparent 70%);
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+#start-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 1), 
+                0 0 40px rgba(0, 0, 255, 1), 
+                0 0 60px rgba(255, 0, 255, 1);
+}
+
+#start-button:active::before {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+
+
+/* Contenedor del video */
+#video-container {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Ocultar videos hasta que el usuario haga clic */
+video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    display: none;
+}

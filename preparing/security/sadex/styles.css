@@ -1,0 +1,328 @@
+/* Estilos generales */
+body {
+    background-color: #121212; /* Fondo oscuro */
+    color: white; /* Texto en blanco */
+    font-family: Arial, sans-serif;
+    text-align: center; /* Centra los textos */
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo del título principal */
+.site-title {
+    font-size: 40px;
+    font-weight: bold;
+    margin-right: 170px;
+    margin-top: 100px; /* Ajusta la posición del título */
+}
+
+.site-titles {
+    font-size: 40px;
+    font-weight: bold;
+    margin-left: 0px; /* Mueve más a la derecha */
+    margin-top: 100px; /* Ajusta la posición del título */
+}
+
+/* Estilo del mensaje de verificación */
+.verification-text {
+    font-size: 22px;
+    margin-top: -18px; /* Espaciado entre el título y este mensaje */
+    margin-right: 80px; 
+    font-weight: bold; /* Hace el texto en negrita */
+}
+
+/* Caja del CAPTCHA con diseño tipo Windows 11 */
+.captcha-box {
+    position: relative; /* Permite que el loader se posicione dentro */
+    background: rgba(255, 255, 255, 0.1); /* Fondo translúcido */
+    backdrop-filter: blur(10px); /* Efecto de vidrio esmerilado */
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px; /* Bordes redondeados */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra elegante */
+    padding: 15px;
+    display: inline-block;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
+    transition: all 0.3s ease-in-out; /* Transición suave */
+    width: auto;
+    min-width: 135px; /* Ancho mínimo */
+    max-width: 300px; /* Ancho máximo */
+    height: 70px;
+}
+
+/* Efecto de elevación al pasar el mouse */
+.captcha-box:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Mensaje de seguridad */
+.security-message {
+    font-size: 22.5px;
+    margin-top: 76px;
+    margin-right: 0px;
+}
+
+.linea-separadora {
+    border: none;
+    border-top: 1px solid #aaa;
+    margin-top: 170px;
+    margin-bottom: 20px;
+    width: 59%;
+}
+
+/* Información de Cloudflare */
+.cloudflare-info {
+    font-size: px;
+    margin-top: 100px;
+    color: #aaa;
+}
+
+.footer {
+    font-size: 12px;
+}
+
+/* Botón de verificación */
+.verify-btn {
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.favicon-img {
+    position: absolute;  /* Puedes usar 'fixed' si quieres que siempre esté en la misma posición */
+    top: 98px;    /* Mueve hacia abajo */
+    left: 330px;   /* Mueve hacia la derecha */
+    width: 50px;  /* Ajusta el tamaño */
+    height: 50px;
+}
+
+
+
+/* Loader */
+/* Nuevo Loader con Efecto Neón */
+.loader {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 5px solid rgba(76, 175, 80, 0.3); /* Verde translúcido */
+    border-top: 5px solid #4CAF50; /* Verde brillante */
+    animation: spin 1s linear infinite, glow 1.5s ease-in-out infinite alternate;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.8);
+}
+
+/* Efecto de pulsación */
+@keyframes glow {
+    0% { box-shadow: 0 0 10px rgba(76, 175, 80, 0.5); }
+    100% { box-shadow: 0 0 20px rgba(76, 175, 80, 1); }
+}
+
+/* Animación de giro */
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.message {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+}
+
+.success-container {
+    display: none;
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 800px;
+    width: 95%;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+}
+
+.success-title {
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+.waiting-message {
+    font-size: 20px;
+    margin-top: 10px;
+    color: #aaa;
+}
+
+/* Estilos para el ícono de check */
+.check-icon {
+    margin: 20px 0;
+    font-size: 60px;
+    color: #4CAF50;
+    animation: scaleUp 0.5s ease-in-out;
+}
+
+@keyframes scaleUp {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .favicon-img {
+        top: 30px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 45px;
+        height: 45px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .site-title {
+        font-size: 24px;
+        margin-right: 0;
+        margin-top: 60px;
+    }
+
+    .verification-text {
+        font-size: 18px;
+        margin-right: 0;
+        margin-top: -10px;
+    }
+
+    .captcha-box {
+        width: 90%;
+        max-width: 300px;
+        height: auto;
+        padding: 10px;
+    }
+
+    .security-message {
+        font-size: 16px;
+        margin-right: 0;
+        margin-top: 30px;
+    }
+
+    .linea-separadora {
+        width: 80%;
+        margin-top: 120px;
+    }
+
+    .success-title {
+        font-size: 22px;
+    }
+
+    .waiting-message {
+        font-size: 16px;
+    }
+
+    .footer {
+        font-size: 10px;
+    }
+}
+
+/* Estilos para tablets (pantallas entre 481px y 1024px) */
+@media (min-width: 481px) and (max-width: 1024px) {
+    .site-title {
+        font-size: 32px;
+        margin-right: 0;
+        margin-top: 70px;
+    }
+
+    .verification-text {
+        font-size: 20px;
+        margin-right: 0;
+        margin-top: -10px;
+    }
+
+    .captcha-box {
+        width: 80%;
+        max-width: 280px;
+        height: auto;
+        padding: 12px;
+    }
+
+    .security-message {
+        font-size: 18px;
+        margin-right: 0;
+        margin-top: 50px;
+    }
+
+    .linea-separadora {
+        width: 70%;
+        margin-top: 150px;
+    }
+
+    .success-title {
+        font-size: 26px;
+    }
+
+    .waiting-message {
+        font-size: 18px;
+    }
+
+    .footer {
+        font-size: 12px;
+    }
+}
+
+/* Estilos para televisores 4K (pantallas de 2560px en adelante) */
+@media (min-width: 2560px) {
+    .site-title {
+        font-size: 60px;
+        margin-right: 0;
+        margin-top: 120px;
+    }
+
+    .verification-text {
+        font-size: 40px;
+        margin-right: 0;
+        margin-top: -10px;
+    }
+
+    .captcha-box {
+        width: 40%;
+        max-width: 500px;
+        height: auto;
+        padding: 20px;
+    }
+
+    .security-message {
+        font-size: 36px;
+        margin-right: 0;
+        margin-top: 80px;
+    }
+
+    .linea-separadora {
+        width: 50%;
+        margin-top: 250px;
+    }
+
+    .success-title {
+        font-size: 50px;
+    }
+
+    .waiting-message {
+        font-size: 30px;
+    }
+
+    .footer {
+        font-size: 20px;
+    }
+}

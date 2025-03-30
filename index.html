@@ -1,7 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css?family=Poppins:wght@300&display=swap" rel="stylesheet"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Descubre Haemblarg d' Vallejo, una plataforma educativa con foros, eventos y más. ¡Únete a nuestra comunidad estudiantil!">
     <meta name="keywords" content="Haemblarg, Vallejo, colegio, educación, estudiantes">
@@ -48,107 +52,116 @@
           ]
         }
         </script>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+    }
+
+    /* Fondo de la página */
+    body {
+        
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    header {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 80px;
+    }
+
+    header h4 {
+        position: absolute;
+        left: 10%;
+        bottom: 1rem;
+        font-size: 1.6rem;
+    }
+
+    /* Splash screen */
+    .intro {
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: #161616;
+        transition: 1s;
+    }
+
+    .logo-header {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #ffffff;
+    }
+
+    .logo {
+        position: relative;
+        display: inline-block;
+        bottom: -20px;
+        opacity: 0;
+    }
+
+    .logo.active {
+        bottom: 0;
+        opacity: 1;
+        transition: ease-in-out 0.5s;
+    }
+
+    .logo.fade {
+        bottom: 150px;
+        opacity: 0;
+        transition: ease-in-out 0.5s;
+    }
+</style>
+
 </head>
 <body>
+<div class="intro">
+    <h1 class="logo-header">
+        <span class="logo">Ho</span><span class="logo">la!</span>
+    </h1>
+</div>
 
-    <!-- Contenedor del botón con imagen de fondo -->
-    <div id="button-container">
-        <button id="start-button">
-            <span>HOLA</span>
-            <div class="glow"></div>
-        </button>
-    </div>
-    
+<script>
+    let intro = document.querySelector('.intro');
+    let logoSpan = document.querySelectorAll('.logo');
 
-    <!-- Contenedor del video -->
-    <div id="video-container">
-        <!-- Video para laptops -->
-        <video id="video-laptop">
-            <source src="inicio_pc.webm" type="video/webm">
-            Tu navegador no soporta videos.
-        </video>
+    window.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+            logoSpan.forEach((span, idx) => {
+                setTimeout(() => {
+                    span.classList.add('active');
+                }, (idx + 1) * 400);
+            });
 
-        <!-- Video para móviles -->
-        <video id="video-movil">
-            <source src="inicio_movil.webm" type="video/webm">
-            Tu navegador no soporta videos.
-        </video>
-    </div>
+            setTimeout(() => {
+                logoSpan.forEach((span, idx) => {
+                    setTimeout(() => {
+                        span.classList.remove('active');
+                        span.classList.add('fade');
+                    }, (idx + 1) * 50);
+                });
+            }, 2000);
 
-    <script>
-        document.getElementById("start-button").addEventListener("click", function() {
-    let video, url, tiempoRedireccion;
-
-    if (window.innerWidth >= 1024) {
-        video = document.getElementById("video-laptop");
-        url = "/charging/index.html"; // Redirección para laptops
-        tiempoRedireccion = 8000; // 8 segundos (según la duración del video)
-    } else {
-        video = document.getElementById("video-movil");
-        url = "/charging/index.html"; // Redirección para móviles
-        tiempoRedireccion =15000; // 5 segundos (según la duración del video)
-    }
-
-    // Ocultar el botón con transición suave
-    document.getElementById("button-container").style.opacity = "0";
-
-    setTimeout(() => {
-        document.getElementById("button-container").style.display = "none";
-        
-        // Mostrar y reproducir el video
-        video.style.display = "block";
-        video.play().catch(error => console.error("Error al reproducir el video:", error));
-
-        // Activar sonido
-        video.muted = false;
-        video.autoplay = true;
-
-        // Redirigir cuando termine el video
-        video.addEventListener("ended", function() {
-            window.location.href = url;
+            setTimeout(() => {
+                intro.style.top = '-100vh';
+            }, 2300);
         });
+    });
 
-        // Redirigir después de X segundos por seguridad
-        setTimeout(() => {
-            window.location.href = url;
-        }, tiempoRedireccion);
-
-    }, 1000); // 1 segundo de transición antes de mostrar el video
-});
-
-
-document.getElementById("start-button").addEventListener("click", function () {
-    let button = this;
-
-    // Desactivar botón para evitar múltiples clics
-    button.disabled = true;
-
-    // Efecto de partículas al hacer clic
-    for (let i = 0; i < 15; i++) {
-        let particle = document.createElement("div");
-        particle.classList.add("particle");
-        document.body.appendChild(particle);
-
-        let x = button.offsetLeft + Math.random() * button.offsetWidth;
-        let y = button.offsetTop + Math.random() * button.offsetHeight;
-
-        particle.style.left = `${x}px`;
-        particle.style.top = `${y}px`;
-
-        // Animación de partículas
-        setTimeout(() => {
-            particle.remove();
-        }, 1000);
-    }
-
-    // Efecto de desvanecimiento del botón
     setTimeout(() => {
-        document.getElementById("button-container").style.opacity = "0";
-    }, 800);
-});
-
-
-    </script>
-
+        window.location.href = "/preparing/index.html";
+    }, 2900);
+</script>
 </body>
 </html>
