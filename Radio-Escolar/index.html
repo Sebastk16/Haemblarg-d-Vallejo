@@ -14,115 +14,56 @@
       <span class="live-indicator">⏳ Esperando transmisión en vivo...</span>
     </header>
 
-    <section class="live-stream">
-      <h2 class="glitch">🔴 En Vivo - YouTube</h2>
-      <div class="video-grid">
-        <iframe id="liveVideoYT" allowfullscreen></iframe>
-      </div>
-    </section>
 
-    <section id="youtubeChat" class="chat-frame">
-      <iframe src="" width="100%" height="450" frameborder="0" allowfullscreen></iframe>
-    </section>
+        <section class="live-stream" id="programa-twitch">
+            <h2 class="glitch">🔴 En Vivo Ahora - Twitch</h2>
+            <div class="video-wrapper">
+                <iframe id="liveVideoTW" src="https://player.twitch.tv/?channel=haemcvlive&parent=haemblarg-d-vallejo.netlify.app" 
+            
+                frameborder="0"
+                allowfullscreen
+                scrolling="no"></iframe>
+            </div>
+        </section>
 
-    <section class="program-schedule">
-      <h2>📅 Programación de Hoy</h2>
-      <div id="programList"></div>
-    </section>
-  </div>
+        <section class="live-stream" id="programa-youtube">
+            <h2 class="glitch">🔴 En Vivo Ahora - YouTube</h2>
+            <div class="video-wrapper">
+                <iframe id="liveVideoYT" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" allowfullscreen></iframe>
+            </div>
+        </section>
 
-  <script>
-    const API_KEY = "AIzaSyDoADgZUq34eMSSksUfF7n8j4EIFSvuVK4";
-    const CHANNEL_ID = "UCNTgnioM4lW1CK0XHXky9ig";
-    const chatDomain = "la-emblematica-de-vallejo.netlify.app";
-    const playlist = ["audio/lofi1.mp3", "audio/lofi2.mp3", "audio/electro1.mp3"];
-    let currentTrack = 0;
+  
 
-    // 🎵 Música de fondo
-    const audio = new Audio(playlist[currentTrack]);
-    audio.loop = false;
-    audio.volume = 0.3;
-    const btn = document.createElement("button");
-    btn.className = "music-button";
-    btn.textContent = "🎵 Activar Música";
-    document.body.appendChild(btn);
-    let playing = false;
-    btn.addEventListener("click", () => {
-      if (playing) { audio.pause(); btn.textContent = "🎵 Activar Música"; }
-      else { audio.play(); btn.textContent = "🔇 Desactivar Música"; }
-      playing = !playing;
-    });
+        <section id="locutores">
+            <h2 class="glitch">🎙️ Locutores y Programas</h2>
+            <div class="locutor-card">
+                <img src="locutor1.jpg" alt="Locutor 1">
+                <div>
+                    <h3>Juan Pérez</h3>
+                    <p>Programa: "Música y Cultura"</p>
+                </div>
+            </div>
+            <div class="locutor-card">
+                <img src="locutor2.jpg" alt="Locutor 2">
+                <div>
+                    <h3>María López</h3>
+                    <p>Programa: "Noticias Escolares"</p>
+                </div>
+            </div>
+        </section>
 
-    // 📺 Mostrar video si está en vivo
-    async function checkYouTubeLive() {
-      try {
-        const res = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${CHANNEL_ID}&eventType=live&type=video&key=${API_KEY}`);
-        const data = await res.json();
-        if (data.items.length > 0) {
-          const videoId = data.items[0].id.videoId;
-          document.getElementById("liveVideoYT").src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-          document.querySelector("#youtubeChat iframe").src = `https://www.youtube.com/live_chat?v=${videoId}&embed_domain=${chatDomain}`;
-          showNotification(data.items[0].snippet.title);
-        }
-      } catch (e) {
-        console.error("Error al verificar YouTube:", e);
-      }
-    }
+        
+        
 
-    function showNotification(title) {
-      const notif = document.createElement("div");
-      notif.className = "push-notification";
-      notif.textContent = `🔴 En vivo: ${title}`;
-      document.body.appendChild(notif);
-      setTimeout(() => notif.style.opacity = 1, 100);
-      setTimeout(() => {
-        notif.style.opacity = 0;
-        setTimeout(() => notif.remove(), 1000);
-      }, 5000);
+        
 
-      if (Notification.permission === "granted") {
-        new Notification(`🎥 EN VIVO: ${title}`);
-      } else if (Notification.permission !== "denied") {
-        Notification.requestPermission().then(permission => {
-          if (permission === "granted") {
-            new Notification(`🎥 EN VIVO: ${title}`);
-          }
-        });
-      }
-    }
+    </div>
 
-    // 📅 Mostrar programación
-    function loadSchedule() {
-      const schedule = [
-        { time: "08:00", name: "Despierta con la Radio" },
-        { time: "10:00", name: "Noticias Escolares" },
-        { time: "12:00", name: "Música y Cultura" },
-        { time: "14:00", name: "Lo Mejor del Pop" },
-        { time: "16:00", name: "Entrevistas en Vivo" },
-        { time: "18:00", name: "Electrónica y Chill" },
-        { time: "20:00", name: "Noche de Podcast" }
-      ];
-      const now = new Date();
-      const currentMinutes = now.getHours() * 60 + now.getMinutes();
-      const container = document.getElementById("programList");
-      schedule.forEach(p => {
-        const timeMin = parseInt(p.time.split(":")[0]) * 60 + parseInt(p.time.split(":")[1]);
-        const div = document.createElement("div");
-        div.className = "program-item";
-        div.innerHTML = `<span>${p.time}</span><span>${p.name}</span>`;
-        if (currentMinutes >= timeMin && currentMinutes < timeMin + 59) {
-          div.classList.add("highlight");
-        }
-        container.appendChild(div);
-      });
-    }
+    <script type="module" src="js/main.js"></script>
 
-    document.addEventListener("DOMContentLoaded", () => {
-      Notification.requestPermission();
-      checkYouTubeLive();
-      loadSchedule();
-      setInterval(checkYouTubeLive, 30000);
-    });
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   </script>
 </body>
 </html>
