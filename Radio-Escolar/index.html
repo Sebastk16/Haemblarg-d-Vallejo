@@ -26,6 +26,18 @@
             </div>
         </section>
 
+
+    <button onclick="reloadTwitch()">🔁 Recargar transmisión</button>
+
+<script>
+  function reloadTwitch() {
+    const iframe = document.getElementById("liveVideoTW");
+    const src = iframe.src;
+    iframe.src = ""; // Forzar reload
+    setTimeout(() => { iframe.src = src; }, 100); // Reiniciar
+  }
+</script>
+
         <section class="live-stream" id="programa-youtube">
             <h2 class="glitch">🔴 En Vivo Ahora - YouTube</h2>
             <div class="video-wrapper">
